@@ -4,6 +4,8 @@
  */
 package tokyo.huyhieu.cukcuk.main;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.UIManager;
 import tokyo.huyhieu.cukcuk.controller.LoginController;
 import tokyo.huyhieu.cukcuk.view.Login;
 /**
@@ -12,6 +14,11 @@ import tokyo.huyhieu.cukcuk.view.Login;
  */
 public class Main {
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
         LoginController userController = new LoginController(new Login());
     }
     
