@@ -1,12 +1,12 @@
 package tokyo.huyhieu.cukcuk.model;
 
 public class Product {
+
     private Long id;
     private Long idCategory;
     private String name;
     private Double price;
     private String image;
-
 
     public Product() {
     }
@@ -18,8 +18,7 @@ public class Product {
         this.price = price;
         this.image = image;
     }
-    
-    
+
     public Product(Long id, String name, Double price) {
         this.id = id;
         this.name = name;
@@ -27,10 +26,16 @@ public class Product {
     }
 
     public Product(String name, Double price) {
-       this.name = name;
-       this.price = price;
+        this.name = name;
+        this.price = price;
     }
 
+    public Product(long idCategory, String name, Double price, String image) {
+        this.idCategory = idCategory;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+    }
 
     public Long getId() {
         return this.id;

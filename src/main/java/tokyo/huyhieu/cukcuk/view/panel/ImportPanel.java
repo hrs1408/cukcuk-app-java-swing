@@ -28,11 +28,11 @@ public class ImportPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        btlImportDetail = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblImport = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
@@ -42,7 +42,7 @@ public class ImportPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        btlImportDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -53,7 +53,7 @@ public class ImportPanel extends javax.swing.JPanel {
                 "Tên hàng", "Giá "
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(btlImportDetail);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 112, 210));
@@ -62,7 +62,7 @@ public class ImportPanel extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(40, 112, 210));
         jSeparator1.setForeground(new java.awt.Color(40, 112, 210));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblImport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -73,7 +73,7 @@ public class ImportPanel extends javax.swing.JPanel {
                 "Tên hàng", "Nhà cung cấp", "Tên nhân viên", "Số lượng", "Tổng tiền"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblImport);
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(40, 112, 210));
@@ -156,6 +156,7 @@ public class ImportPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable btlImportDetail;
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
@@ -164,8 +165,7 @@ public class ImportPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JTable tblImport;
     // End of variables declaration//GEN-END:variables
 }

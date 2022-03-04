@@ -29,17 +29,17 @@ public class StaffFrame extends javax.swing.JFrame {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        kButton1 = new com.k33ptoo.components.KButton();
-        kButton2 = new com.k33ptoo.components.KButton();
-        kButton3 = new com.k33ptoo.components.KButton();
+        tblOrder = new javax.swing.JTable();
+        btnSaveOrder = new com.k33ptoo.components.KButton();
+        btnPay = new com.k33ptoo.components.KButton();
+        btnCancel = new com.k33ptoo.components.KButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        kGradientPanel3 = new com.k33ptoo.components.KGradientPanel();
+        panelRenderMenu = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel4 = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel8 = new com.k33ptoo.components.KGradientPanel();
@@ -47,20 +47,20 @@ public class StaffFrame extends javax.swing.JFrame {
         kGradientPanel9 = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel10 = new com.k33ptoo.components.KGradientPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        kButton4 = new com.k33ptoo.components.KButton();
-        kButton5 = new com.k33ptoo.components.KButton();
+        lblUserName = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        btnCreateOrderTab = new com.k33ptoo.components.KButton();
+        btnOrderList = new com.k33ptoo.components.KButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        kButton6 = new com.k33ptoo.components.KButton();
+        tblVoucher = new javax.swing.JTable();
+        btnCheckMoney = new com.k33ptoo.components.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -71,26 +71,26 @@ public class StaffFrame extends javax.swing.JFrame {
                 "Tên món", "Số lượng", "Thành tiền"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Thành tiền");
+        jScrollPane1.setViewportView(tblOrder);
+        if (tblOrder.getColumnModel().getColumnCount() > 0) {
+            tblOrder.getColumnModel().getColumn(2).setResizable(false);
+            tblOrder.getColumnModel().getColumn(2).setHeaderValue("Thành tiền");
         }
 
-        kButton1.setText("Lưu hoá đơn");
-        kButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton1.setkEndColor(new java.awt.Color(40, 112, 210));
-        kButton1.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnSaveOrder.setText("Lưu hoá đơn");
+        btnSaveOrder.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnSaveOrder.setkEndColor(new java.awt.Color(40, 112, 210));
+        btnSaveOrder.setkStartColor(new java.awt.Color(40, 112, 210));
 
-        kButton2.setText("Thanh toán");
-        kButton2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton2.setkEndColor(new java.awt.Color(40, 112, 210));
-        kButton2.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnPay.setText("Thanh toán");
+        btnPay.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnPay.setkEndColor(new java.awt.Color(40, 112, 210));
+        btnPay.setkStartColor(new java.awt.Color(40, 112, 210));
 
-        kButton3.setText("Huỷ bỏ");
-        kButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton3.setkEndColor(new java.awt.Color(255, 51, 51));
-        kButton3.setkStartColor(new java.awt.Color(255, 0, 51));
+        btnCancel.setText("Huỷ bỏ");
+        btnCancel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCancel.setkEndColor(new java.awt.Color(255, 51, 51));
+        btnCancel.setkStartColor(new java.awt.Color(255, 0, 51));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/add.png"))); // NOI18N
@@ -132,11 +132,11 @@ public class StaffFrame extends javax.swing.JFrame {
                 .addGap(8, 8, 8))
         );
 
-        kGradientPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
-        kGradientPanel3.setkBorderRadius(0);
-        kGradientPanel3.setkEndColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel3.setkStartColor(new java.awt.Color(255, 255, 255));
-        kGradientPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        panelRenderMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        panelRenderMenu.setkBorderRadius(0);
+        panelRenderMenu.setkEndColor(new java.awt.Color(255, 255, 255));
+        panelRenderMenu.setkStartColor(new java.awt.Color(255, 255, 255));
+        panelRenderMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         kGradientPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
         kGradientPanel4.setkBorderRadius(0);
@@ -154,7 +154,7 @@ public class StaffFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        kGradientPanel3.add(kGradientPanel4);
+        panelRenderMenu.add(kGradientPanel4);
 
         kGradientPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
         kGradientPanel5.setkBorderRadius(0);
@@ -172,7 +172,7 @@ public class StaffFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        kGradientPanel3.add(kGradientPanel5);
+        panelRenderMenu.add(kGradientPanel5);
 
         kGradientPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
         kGradientPanel8.setkBorderRadius(0);
@@ -190,7 +190,7 @@ public class StaffFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        kGradientPanel3.add(kGradientPanel8);
+        panelRenderMenu.add(kGradientPanel8);
 
         kGradientPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
         kGradientPanel7.setkBorderRadius(0);
@@ -208,7 +208,7 @@ public class StaffFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        kGradientPanel3.add(kGradientPanel7);
+        panelRenderMenu.add(kGradientPanel7);
 
         kGradientPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
         kGradientPanel9.setkBorderRadius(0);
@@ -226,7 +226,7 @@ public class StaffFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        kGradientPanel3.add(kGradientPanel9);
+        panelRenderMenu.add(kGradientPanel9);
 
         kGradientPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
         kGradientPanel10.setkBorderRadius(0);
@@ -244,28 +244,28 @@ public class StaffFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        kGradientPanel3.add(kGradientPanel10);
+        panelRenderMenu.add(kGradientPanel10);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/LOGOCUKCUKJ.png"))); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel8.setText("Nguyễn Phan Huy Hiếu");
+        lblUserName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(40, 112, 210));
+        lblUserName.setText("Nguyễn Phan Huy Hiếu");
 
-        jButton1.setText("Đăng xuất");
+        btnLogout.setText("Đăng xuất");
 
-        kButton4.setText("ORDER");
-        kButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton4.setkEndColor(new java.awt.Color(40, 112, 210));
-        kButton4.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnCreateOrderTab.setText("ORDER");
+        btnCreateOrderTab.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCreateOrderTab.setkEndColor(new java.awt.Color(40, 112, 210));
+        btnCreateOrderTab.setkStartColor(new java.awt.Color(40, 112, 210));
 
-        kButton5.setText("HOÁ ĐƠN");
-        kButton5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton5.setkEndColor(new java.awt.Color(40, 112, 210));
-        kButton5.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnOrderList.setText("HOÁ ĐƠN");
+        btnOrderList.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnOrderList.setkEndColor(new java.awt.Color(40, 112, 210));
+        btnOrderList.setkStartColor(new java.awt.Color(40, 112, 210));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblVoucher.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -276,12 +276,12 @@ public class StaffFrame extends javax.swing.JFrame {
                 "Mã Voucher", "Giảm %"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblVoucher);
 
-        kButton6.setText("KIỂM TIỀN");
-        kButton6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton6.setkEndColor(new java.awt.Color(40, 112, 210));
-        kButton6.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnCheckMoney.setText("KIỂM TIỀN");
+        btnCheckMoney.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCheckMoney.setkEndColor(new java.awt.Color(40, 112, 210));
+        btnCheckMoney.setkStartColor(new java.awt.Color(40, 112, 210));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -293,17 +293,17 @@ public class StaffFrame extends javax.swing.JFrame {
                     .addComponent(kGradientPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelRenderMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnLogout)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel8))
+                                .addComponent(lblUserName))
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(kButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCreateOrderTab, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCheckMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,16 +314,16 @@ public class StaffFrame extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSaveOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(0, 25, Short.MAX_VALUE))
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                 .addContainerGap())))
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
@@ -342,9 +342,9 @@ public class StaffFrame extends javax.swing.JFrame {
                         .addGap(15, 15, 15))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(kButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCreateOrderTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCheckMoney, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
@@ -360,14 +360,14 @@ public class StaffFrame extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnSaveOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelRenderMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel8))
+                    .addComponent(btnLogout)
+                    .addComponent(lblUserName))
                 .addContainerGap())
         );
 
@@ -390,32 +390,32 @@ public class StaffFrame extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private com.k33ptoo.components.KButton btnCancel;
+    private com.k33ptoo.components.KButton btnCheckMoney;
+    private com.k33ptoo.components.KButton btnCreateOrderTab;
+    private javax.swing.JButton btnLogout;
+    private com.k33ptoo.components.KButton btnOrderList;
+    private com.k33ptoo.components.KButton btnPay;
+    private com.k33ptoo.components.KButton btnSaveOrder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private com.k33ptoo.components.KButton kButton1;
-    private com.k33ptoo.components.KButton kButton2;
-    private com.k33ptoo.components.KButton kButton3;
-    private com.k33ptoo.components.KButton kButton4;
-    private com.k33ptoo.components.KButton kButton5;
-    private com.k33ptoo.components.KButton kButton6;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel10;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel3;
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel kGradientPanel7;
     private com.k33ptoo.components.KGradientPanel kGradientPanel8;
     private com.k33ptoo.components.KGradientPanel kGradientPanel9;
+    private javax.swing.JLabel lblUserName;
+    private com.k33ptoo.components.KGradientPanel panelRenderMenu;
+    private javax.swing.JTable tblOrder;
+    private javax.swing.JTable tblVoucher;
     // End of variables declaration//GEN-END:variables
 }

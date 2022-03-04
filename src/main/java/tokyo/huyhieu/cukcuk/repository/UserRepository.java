@@ -30,11 +30,15 @@ public class UserRepository {
                 long id = rs.getInt(1);
                 String userName = rs.getString(2);
                 String passWord = rs.getString(3);
-                boolean role = rs.getBoolean(4);
+                String fullName = rs.getString(4);
+                boolean role = rs.getBoolean(5);
+                String phone = rs.getString(6);
                 account.setId(id);
                 account.setUserName(userName);
                 account.setPassword(passWord);
+                account.setFullName(fullName);
                 account.setRole(role);
+                account.setPhone(phone);
                 accountList.add(account);
             }
         } catch (SQLException ex) {

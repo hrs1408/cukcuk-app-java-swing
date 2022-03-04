@@ -27,22 +27,22 @@ public class StaffPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblStaff = new javax.swing.JTable();
         btnRemove = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txtRole = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        lblRole = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JTextField();
 
         setRequestFocusEnabled(false);
         setVerifyInputWhenFocusTarget(false);
@@ -50,9 +50,9 @@ public class StaffPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/874ec0acd78a4011dbdbd95df50a348b.jpg"))); // NOI18N
 
@@ -70,7 +70,7 @@ public class StaffPanel extends javax.swing.JPanel {
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_pencil_24px.png"))); // NOI18N
         btnEdit.setText("Sửa");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblStaff.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -81,36 +81,36 @@ public class StaffPanel extends javax.swing.JPanel {
                 "Tên nhân viên", "Tên đăng nhập", "Chức vụ", "Số điện thoại"
             }
         ));
-        jTable1.setUpdateSelectionOnSort(false);
-        jTable1.setVerifyInputWhenFocusTarget(false);
-        jScrollPane1.setViewportView(jTable1);
+        tblStaff.setUpdateSelectionOnSort(false);
+        tblStaff.setVerifyInputWhenFocusTarget(false);
+        jScrollPane1.setViewportView(tblStaff);
 
         btnRemove.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         btnRemove.setForeground(new java.awt.Color(40, 112, 210));
         btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Remove_24px.png"))); // NOI18N
         btnRemove.setText("Xoá");
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel1.setText("Tên nhân viên");
+        lblName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblName.setForeground(new java.awt.Color(40, 112, 210));
+        lblName.setText("Tên nhân viên");
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel2.setText("Tên đăng nhập");
+        lblUserName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(40, 112, 210));
+        lblUserName.setText("Tên đăng nhập");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtRole.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
         jSeparator1.setForeground(new java.awt.Color(40, 112, 210));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel3.setText("Chức vụ");
+        lblRole.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(40, 112, 210));
+        lblRole.setText("Chức vụ");
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel4.setText("Số điện thoại");
+        lblPhone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(40, 112, 210));
+        lblPhone.setText("Số điện thoại");
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -130,27 +130,27 @@ public class StaffPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblUserName)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4))
+                        .addComponent(txtUserName))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblName)
                         .addGap(23, 23, 23)
-                        .addComponent(jTextField5))
+                        .addComponent(txtName))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblRole)
                         .addGap(54, 54, 54)
-                        .addComponent(jTextField1))
+                        .addComponent(txtRole))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(lblPhone)
                         .addGap(28, 28, 28)
-                        .addComponent(jTextField2))
+                        .addComponent(txtPhone))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,20 +165,20 @@ public class StaffPanel extends javax.swing.JPanel {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblName)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblUserName)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblRole)
+                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblPhone)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,19 +207,19 @@ public class StaffPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JTable tblStaff;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtRole;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,6 @@
 package tokyo.huyhieu.cukcuk.view.panel;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;

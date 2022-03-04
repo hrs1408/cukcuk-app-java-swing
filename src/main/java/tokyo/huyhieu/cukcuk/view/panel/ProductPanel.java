@@ -44,13 +44,13 @@ public class ProductPanel extends javax.swing.JPanel {
 
         tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Loại món", "Tên món", "Giá bán"
+                "Loại món", "Tên món", "Giá bán", "Ảnh"
             }
         ));
         jScrollPane1.setViewportView(tblProduct);

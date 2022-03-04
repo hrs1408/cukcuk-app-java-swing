@@ -29,11 +29,11 @@ public class CategoryPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        tblCategory = new javax.swing.JTable();
+        txtId = new javax.swing.JLabel();
+        txtName = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         btnAdd = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
         btnRemove = new javax.swing.JLabel();
@@ -44,7 +44,7 @@ public class CategoryPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCategory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -55,20 +55,20 @@ public class CategoryPanel extends javax.swing.JPanel {
                 "ID", "Tên danh mục"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(40, 112, 210));
-        jScrollPane1.setViewportView(jTable1);
+        tblCategory.setGridColor(new java.awt.Color(40, 112, 210));
+        jScrollPane1.setViewportView(tblCategory);
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtId.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
-        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel4.setText("ID");
+        lblId.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblId.setForeground(new java.awt.Color(40, 112, 210));
+        lblId.setText("ID");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel5.setText("Tên danh mục");
+        lblName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblName.setForeground(new java.awt.Color(40, 112, 210));
+        lblName.setText("Tên danh mục");
 
         btnAdd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(40, 112, 210));
@@ -105,12 +105,12 @@ public class CategoryPanel extends javax.swing.JPanel {
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(lblId)
+                            .addComponent(lblName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,12 +135,12 @@ public class CategoryPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName))
                 .addGap(43, 43, 43)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,15 +167,15 @@ public class CategoryPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JTable tblCategory;
+    private javax.swing.JLabel txtId;
+    private javax.swing.JLabel txtName;
     // End of variables declaration//GEN-END:variables
 }

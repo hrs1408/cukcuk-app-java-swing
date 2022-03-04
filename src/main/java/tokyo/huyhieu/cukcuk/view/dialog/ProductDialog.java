@@ -4,9 +4,13 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import tokyo.huyhieu.cukcuk.model.Category;
+import tokyo.huyhieu.cukcuk.repository.CategoryRepository;
 
 /**
  *
@@ -14,12 +18,16 @@ import javax.swing.JTextField;
  */
 public class ProductDialog extends javax.swing.JDialog {
 
+    private CategoryRepository categoryRepository = new CategoryRepository();
+    private List<Category> categories = categoryRepository.findAll();
+
     /**
      * Creates new form ProductDialog
      */
-    public ProductDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public ProductDialog() {
         initComponents();
+        setLocationRelativeTo(null);
+        loadCategory();
     }
 
     /**
@@ -38,7 +46,7 @@ public class ProductDialog extends javax.swing.JDialog {
         lblShowImage = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
-        cbCategory = new javax.swing.JComboBox<>();
+        cbCategory = new javax.swing.JComboBox();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         txtUrlImage = new javax.swing.JTextField();
@@ -67,8 +75,6 @@ public class ProductDialog extends javax.swing.JDialog {
                 txtPriceActionPerformed(evt);
             }
         });
-
-        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_24px_1.png"))); // NOI18N
         btnSave.setText("Lưu");
@@ -174,12 +180,10 @@ public class ProductDialog extends javax.swing.JDialog {
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
-    
-    
+
     /**
      * @param args the command line arguments
      */
-
     public JButton getBtnCancel() {
         return btnCancel;
     }
@@ -208,11 +212,17 @@ public class ProductDialog extends javax.swing.JDialog {
         return txtUrlImage;
     }
 
+    public void loadCategory() {
+        categories.forEach(category -> {
+            cbCategory.addItem(category.getName());
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpload;
-    private javax.swing.JComboBox<String> cbCategory;
+    private javax.swing.JComboBox cbCategory;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblImage;

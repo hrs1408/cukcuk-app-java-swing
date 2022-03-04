@@ -28,12 +28,12 @@ public class VoucherPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        tblVoucher = new javax.swing.JTable();
+        lblIdVoucher = new javax.swing.JLabel();
+        lblVoucher = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblQuantity = new javax.swing.JLabel();
+        lblStatus = new javax.swing.JLabel();
         btnAdd = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
         btnRemove = new javax.swing.JLabel();
@@ -49,7 +49,7 @@ public class VoucherPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVoucher.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,29 +60,29 @@ public class VoucherPanel extends javax.swing.JPanel {
                 "Mã voucher", "Ngày phát hành", "Ngày hết hạn", "Trạng thái"
             }
         ));
-        jTable1.setUpdateSelectionOnSort(false);
-        jTable1.setVerifyInputWhenFocusTarget(false);
-        jScrollPane1.setViewportView(jTable1);
+        tblVoucher.setUpdateSelectionOnSort(false);
+        tblVoucher.setVerifyInputWhenFocusTarget(false);
+        jScrollPane1.setViewportView(tblVoucher);
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel1.setText("iD Voucher");
+        lblIdVoucher.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblIdVoucher.setForeground(new java.awt.Color(40, 112, 210));
+        lblIdVoucher.setText("iD Voucher");
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel2.setText("Mã Voucher");
+        lblVoucher.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblVoucher.setForeground(new java.awt.Color(40, 112, 210));
+        lblVoucher.setText("Mã Voucher");
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel3.setText("Thời gian hiệu lực");
+        lblDate.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(40, 112, 210));
+        lblDate.setText("Thời gian hiệu lực");
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel4.setText("Số lượng");
+        lblQuantity.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblQuantity.setForeground(new java.awt.Color(40, 112, 210));
+        lblQuantity.setText("Số lượng");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel5.setText("Trạng thái");
+        lblStatus.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(40, 112, 210));
+        lblStatus.setText("Trạng thái");
 
         btnAdd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(40, 112, 210));
@@ -121,93 +121,86 @@ public class VoucherPanel extends javax.swing.JPanel {
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+            .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblIdVoucher)
                         .addGap(46, 46, 46)
-                        .addComponent(jTextField5))
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lblVoucher)
                         .addGap(40, 40, 40)
-                        .addComponent(jTextField4))
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(51, 51, 51)
-                        .addComponent(jTextField3))
+                        .addComponent(lblDate)
+                        .addGap(6, 6, 6)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(lblQuantity)
                         .addGap(55, 55, 55)
-                        .addComponent(jTextField2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                    .addComponent(jSeparator1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(lblStatus)
+                        .addGap(51, 51, 51)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGap(10, 10, 10)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                        .addGap(12, 12, 12)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIdVoucher)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblVoucher)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDate)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQuantity)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblStatus)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
+                            .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,21 +213,21 @@ public class VoucherPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblIdVoucher;
+    private javax.swing.JLabel lblQuantity;
+    private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblVoucher;
+    private javax.swing.JTable tblVoucher;
     // End of variables declaration//GEN-END:variables
 }

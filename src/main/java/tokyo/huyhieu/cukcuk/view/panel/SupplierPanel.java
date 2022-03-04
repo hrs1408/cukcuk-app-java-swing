@@ -31,9 +31,9 @@ public class SupplierPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblProduct = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tblSupplier = new javax.swing.JTable();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
@@ -42,7 +42,7 @@ public class SupplierPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
+        tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,11 +53,11 @@ public class SupplierPanel extends javax.swing.JPanel {
                 "ID", "Tên nhà cung cấp", "Số điện thoại", "Địa chỉ"
             }
         ));
-        jScrollPane1.setViewportView(tblProduct);
+        jScrollPane1.setViewportView(tblSupplier);
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_search_24px_3.png"))); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_search_24px_3.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 112, 210));
@@ -95,9 +95,9 @@ public class SupplierPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btnSearch)))
                 .addContainerGap())
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -105,12 +105,12 @@ public class SupplierPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1)
+                    .addComponent(btnSearch)
                     .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
@@ -142,7 +142,7 @@ public class SupplierPanel extends javax.swing.JPanel {
     }
 
     public JTable getTblProduct() {
-        return tblProduct;
+        return tblSupplier;
     }
     
 
@@ -150,11 +150,11 @@ public class SupplierPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
-    private javax.swing.JTable tblProduct;
+    private javax.swing.JTable tblSupplier;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

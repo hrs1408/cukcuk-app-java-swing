@@ -11,7 +11,7 @@ public class SQLServerConnUtils_JDBC {
 
     public static Connection getSQLServerConnection() throws SQLException, ClassNotFoundException {
         String hostName = "HARISON\\NSSQKSERVERZ";
-        String database = "tempCukCuk";
+        String database = "CUKCUK";
         String userName = "sa";
         String password = "123";
         return getSQLServerConnection(hostName, database, userName, password);
