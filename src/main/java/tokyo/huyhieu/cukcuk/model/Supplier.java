@@ -9,11 +9,17 @@ public class Supplier {
     public Supplier() {
     }
 
-    public Supplier(Long id, String name, String address, String phone) {
+    public Supplier(Long id, String name, String phone,  String address) {
         this.id = id;
         this.name = name;
-        this.address = address;
         this.phone = phone;
+        this.address = address;
+    }
+
+    public Supplier(String name, String phone,  String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
     }
 
     public Long getId() {

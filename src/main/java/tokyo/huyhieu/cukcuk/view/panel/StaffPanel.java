@@ -4,6 +4,13 @@
  */
 package tokyo.huyhieu.cukcuk.view.panel;
 
+import com.k33ptoo.components.KGradientPanel;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author huyhi
@@ -16,6 +23,76 @@ public class StaffPanel extends javax.swing.JPanel {
     public StaffPanel() {
         initComponents();
     }
+
+    public JLabel getBtnAdd() {
+        return btnAdd;
+    }
+
+    public JLabel getBtnEdit() {
+        return btnEdit;
+    }
+
+    public JLabel getBtnRemove() {
+        return btnRemove;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JSeparator getjSeparator1() {
+        return jSeparator1;
+    }
+
+    public KGradientPanel getkGradientPanel1() {
+        return kGradientPanel1;
+    }
+
+    public JLabel getLblName() {
+        return lblName;
+    }
+
+    public JLabel getLblPhone() {
+        return lblPhone;
+    }
+
+    public JLabel getLblRole() {
+        return lblRole;
+    }
+
+    public JLabel getLblUserName() {
+        return lblUserName;
+    }
+
+    public JTable getTblStaff() {
+        return tblStaff;
+    }
+
+    public JTextField getTxtName() {
+        return txtName;
+    }
+
+    public JTextField getTxtPhone() {
+        return txtPhone;
+    }
+
+    public JTextField getTxtRole() {
+        return txtRole;
+    }
+
+    public JTextField getTxtUserName() {
+        return txtUserName;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,24 +127,26 @@ public class StaffPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtUserName.setForeground(new java.awt.Color(0, 114, 188));
+        txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
-        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtName.setForeground(new java.awt.Color(0, 114, 188));
+        txtName.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/874ec0acd78a4011dbdbd95df50a348b.jpg"))); // NOI18N
 
         btnAdd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(40, 112, 210));
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_1.png"))); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(0, 114, 188));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_2.png"))); // NOI18N
         btnAdd.setText("Thêm");
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel7.setForeground(new java.awt.Color(0, 114, 188));
         jLabel7.setText("NHÂN VIÊN");
 
         btnEdit.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(40, 112, 210));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_pencil_24px.png"))); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(0, 114, 188));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_edit_24px_1.png"))); // NOI18N
         btnEdit.setText("Sửa");
 
         tblStaff.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,31 +165,33 @@ public class StaffPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblStaff);
 
         btnRemove.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnRemove.setForeground(new java.awt.Color(40, 112, 210));
-        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Remove_24px.png"))); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(0, 114, 188));
+        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Delete_24px.png"))); // NOI18N
         btnRemove.setText("Xoá");
 
         lblName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblName.setForeground(new java.awt.Color(40, 112, 210));
+        lblName.setForeground(new java.awt.Color(0, 114, 188));
         lblName.setText("Tên nhân viên");
 
         lblUserName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblUserName.setForeground(new java.awt.Color(40, 112, 210));
+        lblUserName.setForeground(new java.awt.Color(0, 114, 188));
         lblUserName.setText("Tên đăng nhập");
 
-        txtRole.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtRole.setForeground(new java.awt.Color(0, 114, 188));
+        txtRole.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
-        jSeparator1.setForeground(new java.awt.Color(40, 112, 210));
+        jSeparator1.setForeground(new java.awt.Color(0, 114, 188));
 
         lblRole.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblRole.setForeground(new java.awt.Color(40, 112, 210));
+        lblRole.setForeground(new java.awt.Color(0, 114, 188));
         lblRole.setText("Chức vụ");
 
         lblPhone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblPhone.setForeground(new java.awt.Color(40, 112, 210));
+        lblPhone.setForeground(new java.awt.Color(0, 114, 188));
         lblPhone.setText("Số điện thoại");
 
-        txtPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        txtPhone.setForeground(new java.awt.Color(0, 114, 188));
+        txtPhone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);

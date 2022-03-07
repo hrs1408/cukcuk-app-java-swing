@@ -33,7 +33,7 @@ public class OrderRepository {
                 Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Order";
+            String sql = "SELECT * FROM Orders";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Order Order = new Order(rs.getLong("ID"), rs.getDouble("TOTALPRICE"), rs.getLong("IDVOUCHER"), rs.getLong("IDUSER"), 
@@ -72,7 +72,7 @@ public class OrderRepository {
                 Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Order WHERE ID=" + id + "";
+            String sql = "SELECT * FROM Orders WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Order = new Order(rs.getLong("ID"), rs.getDouble("TOTALPRICE"), rs.getLong("IDVOUCHER"), rs.getLong("IDUSER"), 
@@ -108,7 +108,7 @@ public class OrderRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Order (TOTALMONEY, IDVOUCHER, IDUSER, DAY) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO Orders (TOTALMONEY, IDVOUCHER, IDUSER, DAY) VALUES (?, ?, ?, ?)";
             statement = connection.prepareCall(sql);
             statement.setDouble(1, Order.getTotalMoney());
             statement.setLong(2, Order.getIdVoucher());
@@ -142,7 +142,7 @@ public class OrderRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Order SET TOTALMONEY=?, IDVOUCHER=? , IDUSER=?, DAY=? WHERE ID=" + id + "";
+            String sql = "UPDATE Orders SET TOTALMONEY=?, IDVOUCHER=? , IDUSER=?, DAY=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setDouble(1, Order.getTotalMoney());
             statement.setLong(2, Order.getIdVoucher());
@@ -178,7 +178,7 @@ public class OrderRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Order WHERE ID=" + id + "";
+            String sql = "DELETE FROM Orders WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

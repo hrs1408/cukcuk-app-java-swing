@@ -2,12 +2,14 @@ package tokyo.huyhieu.cukcuk.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import tokyo.huyhieu.cukcuk.model.User;
 import tokyo.huyhieu.cukcuk.repository.UserRepository;
 import tokyo.huyhieu.cukcuk.view.AdminFrame;
 import tokyo.huyhieu.cukcuk.view.Login;
 import tokyo.huyhieu.cukcuk.view.StaffFrame;
-
 
 public class LoginController {
     private Login view;
@@ -38,10 +40,9 @@ public class LoginController {
                         new StaffController(new StaffFrame());
                         this.view.dispose();
                     }
-                }
+                } 
             });
         });
     }
-    
-    
+
 }

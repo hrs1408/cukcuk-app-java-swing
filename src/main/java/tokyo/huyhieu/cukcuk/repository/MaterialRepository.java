@@ -34,10 +34,10 @@ public class MaterialRepository {
                 Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Material";
+            String sql = "SELECT * FROM Materials";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Material Material = new Material(rs.getLong("ID"), rs.getString("NAME"),
+                Material Material = new Material(rs.getLong("ID"), rs.getString("MATERIALNAME"),
                         rs.getDouble("PRICE"));
                 MaterialList.add(Material);
             }
@@ -74,10 +74,48 @@ public class MaterialRepository {
                 Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Material WHERE ID=" + id + "";
+            String sql = "SELECT * FROM Materials WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Material = new Material(rs.getLong("ID"), rs.getString("NAME"),
+                Material = new Material(rs.getLong("ID"), rs.getString("MATERIALNAME"),
+                        rs.getDouble("PRICE"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return Material;
+    }
+
+    public static Material findByName(String name) {
+        Material Material = new Material();
+        Statement statement = null;
+        Connection connection = null;
+        try {
+            try {
+                connection = ConnectionUtils.getMyConnection();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM MATERIALS WHERE MATERIALNAME="+"N'"+ name +"'"+ "";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                Material = new Material(rs.getLong("ID"), rs.getString("MATERIALNAME"),
                         rs.getDouble("PRICE"));
             }
         } catch (SQLException ex) {
@@ -110,7 +148,7 @@ public class MaterialRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(MaterialRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Material (NAME, PRICE) VALUES (?, ?)";
+            String sql = "INSERT INTO Materials (MATERIALNAME, PRICE) VALUES (?, ?)";
             statement = connection.prepareCall(sql);
             statement.setString(1, Material.getName());
             statement.setDouble(2, Material.getPrice());
@@ -142,7 +180,7 @@ public class MaterialRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Material SET NAME=?, PRICE=? WHERE ID=" + id + "";
+            String sql = "UPDATE Materials SET MATERIALNAME=?, PRICE=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setString(1, Material.getName());
             statement.setDouble(2, Material.getPrice());
@@ -176,7 +214,7 @@ public class MaterialRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Material WHERE ID=" + id + "";
+            String sql = "DELETE FROM Materials WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

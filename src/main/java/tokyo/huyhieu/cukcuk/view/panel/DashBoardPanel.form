@@ -320,10 +320,10 @@
                   <Font name="SansSerif" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d2" green="70" red="28" type="rgb"/>
+                  <Color blue="bc" green="72" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_coins_24px.png"/>
+                  <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_get_cash_24px.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="TI&#x1ec0;N THU"/>
               </Properties>
@@ -334,7 +334,7 @@
                   <Font name="SansSerif" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d2" green="70" red="28" type="rgb"/>
+                  <Color blue="bc" green="72" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="805.000"/>
               </Properties>
@@ -383,10 +383,10 @@
                   <Font name="SansSerif" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d2" green="70" red="28" type="rgb"/>
+                  <Color blue="bc" green="72" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_combo_chart_24px.png"/>
+                  <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_combo_chart_24px_1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="DOANH THU &#x1af;&#x1eda;C T&#xcd;NH"/>
               </Properties>
@@ -397,7 +397,7 @@
                   <Font name="SansSerif" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d2" green="70" red="28" type="rgb"/>
+                  <Color blue="bc" green="72" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="1.035.000"/>
               </Properties>
@@ -414,10 +414,10 @@
               </Border>
             </Property>
             <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d1" red="d1" type="rgb"/>
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d1" green="d1" red="d1" type="rgb"/>
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
 
@@ -438,9 +438,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="panelRender" min="-2" pref="330" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -454,7 +454,7 @@
                   <Font name="SansSerif" size="12" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="d2" green="70" red="28" type="rgb"/>
+                  <Color blue="bc" green="72" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Doanh thu theo ng&#xe0;y"/>
               </Properties>

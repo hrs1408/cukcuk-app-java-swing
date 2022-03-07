@@ -79,13 +79,13 @@ public class StaffFrame extends javax.swing.JFrame {
 
         btnSaveOrder.setText("Lưu hoá đơn");
         btnSaveOrder.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnSaveOrder.setkEndColor(new java.awt.Color(40, 112, 210));
-        btnSaveOrder.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnSaveOrder.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnSaveOrder.setkStartColor(new java.awt.Color(0, 114, 188));
 
         btnPay.setText("Thanh toán");
         btnPay.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnPay.setkEndColor(new java.awt.Color(40, 112, 210));
-        btnPay.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnPay.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnPay.setkStartColor(new java.awt.Color(0, 114, 188));
 
         btnCancel.setText("Huỷ bỏ");
         btnCancel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -103,11 +103,12 @@ public class StaffFrame extends javax.swing.JFrame {
         jLabel3.setText("100.000VNĐ");
 
         kGradientPanel2.setkBorderRadius(15);
-        kGradientPanel2.setkEndColor(new java.awt.Color(40, 112, 210));
-        kGradientPanel2.setkStartColor(new java.awt.Color(40, 112, 210));
+        kGradientPanel2.setkEndColor(new java.awt.Color(0, 114, 188));
+        kGradientPanel2.setkStartColor(new java.awt.Color(0, 114, 188));
 
-        jTextField1.setBackground(new java.awt.Color(40, 112, 210));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        jTextField1.setBackground(new java.awt.Color(0, 114, 188));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setBorder(null);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_search_24px_1.png"))); // NOI18N
 
@@ -132,13 +133,13 @@ public class StaffFrame extends javax.swing.JFrame {
                 .addGap(8, 8, 8))
         );
 
-        panelRenderMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        panelRenderMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         panelRenderMenu.setkBorderRadius(0);
         panelRenderMenu.setkEndColor(new java.awt.Color(255, 255, 255));
         panelRenderMenu.setkStartColor(new java.awt.Color(255, 255, 255));
         panelRenderMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        kGradientPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        kGradientPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         kGradientPanel4.setkBorderRadius(0);
         kGradientPanel4.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel4.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -156,7 +157,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         panelRenderMenu.add(kGradientPanel4);
 
-        kGradientPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        kGradientPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         kGradientPanel5.setkBorderRadius(0);
         kGradientPanel5.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel5.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -174,7 +175,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         panelRenderMenu.add(kGradientPanel5);
 
-        kGradientPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        kGradientPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         kGradientPanel8.setkBorderRadius(0);
         kGradientPanel8.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel8.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -192,7 +193,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         panelRenderMenu.add(kGradientPanel8);
 
-        kGradientPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        kGradientPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         kGradientPanel7.setkBorderRadius(0);
         kGradientPanel7.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel7.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -210,7 +211,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         panelRenderMenu.add(kGradientPanel7);
 
-        kGradientPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        kGradientPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         kGradientPanel9.setkBorderRadius(0);
         kGradientPanel9.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel9.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -228,7 +229,7 @@ public class StaffFrame extends javax.swing.JFrame {
 
         panelRenderMenu.add(kGradientPanel9);
 
-        kGradientPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40, 112, 210)));
+        kGradientPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
         kGradientPanel10.setkBorderRadius(0);
         kGradientPanel10.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel10.setkStartColor(new java.awt.Color(255, 255, 255));
@@ -250,20 +251,22 @@ public class StaffFrame extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/LOGOCUKCUKJ.png"))); // NOI18N
 
         lblUserName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblUserName.setForeground(new java.awt.Color(40, 112, 210));
+        lblUserName.setForeground(new java.awt.Color(0, 114, 188));
         lblUserName.setText("Nguyễn Phan Huy Hiếu");
 
         btnLogout.setText("Đăng xuất");
 
+        btnCreateOrderTab.setBorder(null);
         btnCreateOrderTab.setText("ORDER");
         btnCreateOrderTab.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnCreateOrderTab.setkEndColor(new java.awt.Color(40, 112, 210));
-        btnCreateOrderTab.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnCreateOrderTab.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnCreateOrderTab.setkStartColor(new java.awt.Color(0, 114, 188));
 
+        btnOrderList.setBorder(null);
         btnOrderList.setText("HOÁ ĐƠN");
         btnOrderList.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnOrderList.setkEndColor(new java.awt.Color(40, 112, 210));
-        btnOrderList.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnOrderList.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnOrderList.setkStartColor(new java.awt.Color(0, 114, 188));
 
         tblVoucher.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,10 +281,11 @@ public class StaffFrame extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblVoucher);
 
+        btnCheckMoney.setBorder(null);
         btnCheckMoney.setText("KIỂM TIỀN");
         btnCheckMoney.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnCheckMoney.setkEndColor(new java.awt.Color(40, 112, 210));
-        btnCheckMoney.setkStartColor(new java.awt.Color(40, 112, 210));
+        btnCheckMoney.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnCheckMoney.setkStartColor(new java.awt.Color(0, 114, 188));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);

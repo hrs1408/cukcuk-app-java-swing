@@ -4,23 +4,54 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import com.k33ptoo.components.KGradientPanel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import tokyo.huyhieu.cukcuk.controller.EmployeeController;
+import tokyo.huyhieu.cukcuk.model.User;
+import tokyo.huyhieu.cukcuk.view.panel.StaffPanel;
 
 /**
  *
  * @author huyhi
  */
 public class StaffDialog extends javax.swing.JDialog {
-
-    /**
-     * Creates new form ProductDialog
-     */
-    public StaffDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    private EmployeeController employeeController = new EmployeeController(new StaffPanel());
+    private String action;
+    private User user;
+    
+    public StaffDialog(String action, User user) {
+        this.action = action;
+        this.user = user;
         initComponents();
+        setLocationRelativeTo(null);
+        if (action == "add") {
+            lblTitle.setText("Thêm nhân viên");
+            btnSave.setText("Lưu");
+        } else if (action == "edit") {
+            lblTitle.setText("Sửa thông tin nhân viên");
+            btnSave.setText("Sửa");
+        }
     }
+    
+    public StaffDialog(String action) {
+        this.action = action;
+        this.user = user;
+        initComponents();
+        setLocationRelativeTo(null);
+        if (action == "add") {
+            lblTitle.setText("Thêm nhân viên");
+            btnSave.setText("Lưu");
+        } else if (action == "edit") {
+            lblTitle.setText("Sửa thông tin nhân viên");
+            btnSave.setText("Sửa");
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,58 +63,77 @@ public class StaffDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        lblCategory = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        lblPrice = new javax.swing.JLabel();
-        lblShowImage = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        cbCategory = new javax.swing.JComboBox<>();
+        lblPhone = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txtUserName = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        txtUrlImage = new javax.swing.JTextField();
-        lblImage = new javax.swing.JLabel();
-        btnUpload = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblRole = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        cbRole = new javax.swing.JComboBox();
+        lblPasswordComfirm = new javax.swing.JLabel();
+        txtPasswordComfirm = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        lblCategory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblCategory.setText("Danh mục");
-
         lblName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblName.setText("Tên món");
+        lblName.setForeground(new java.awt.Color(0, 114, 188));
+        lblName.setText("Tên nhân viên");
 
-        lblPrice.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblPrice.setText("Giá bán");
+        lblPhone.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(0, 114, 188));
+        lblPhone.setText("Số điện thoại");
 
-        lblShowImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblUserName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(0, 114, 188));
+        lblUserName.setText("Username");
 
-        txtPrice.addActionListener(new java.awt.event.ActionListener() {
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPriceActionPerformed(evt);
+                txtPhoneActionPerformed(evt);
             }
         });
 
-        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_24px_1.png"))); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 114, 188));
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_24px_2.png"))); // NOI18N
         btnSave.setText("Lưu");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Close_24px.png"))); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 114, 188));
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_cancel_24px_1.png"))); // NOI18N
         btnCancel.setText("Huỷ bỏ");
 
-        lblImage.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblImage.setText("Ảnh");
-
-        btnUpload.setText("Tải lên");
-
         lblTitle.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 114, 188));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Thêm món");
+        lblTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/staff_60px.png"))); // NOI18N
+        lblTitle.setText("Nhân viên");
+
+        lblRole.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(0, 114, 188));
+        lblRole.setText("Chức vụ");
+
+        lblPassword.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 114, 188));
+        lblPassword.setText("Mật khẩu");
+
+        cbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nhân viên", "Quản lý" }));
+
+        lblPasswordComfirm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblPasswordComfirm.setForeground(new java.awt.Color(0, 114, 188));
+        lblPasswordComfirm.setText("Xác nhận mật khẩu");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -94,32 +144,35 @@ public class StaffDialog extends javax.swing.JDialog {
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblName)
+                            .addComponent(lblUserName)
+                            .addComponent(lblPassword))
+                        .addGap(49, 49, 49)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                            .addComponent(txtPassword))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(lblPasswordComfirm)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPasswordComfirm))
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCategory)
-                                    .addComponent(lblName)
-                                    .addComponent(lblPrice))
-                                .addGap(63, 63, 63)
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtName)
-                                    .addComponent(txtPrice)
-                                    .addComponent(cbCategory, 0, 390, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblImage)
-                                        .addGap(105, 105, 105)
-                                        .addComponent(txtUrlImage, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnUpload, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)))
-                        .addGap(0, 26, Short.MAX_VALUE)))
+                                    .addComponent(lblPhone)
+                                    .addComponent(lblRole))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbRole, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -128,33 +181,34 @@ public class StaffDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCategory)
-                    .addComponent(cbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrice)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblImage)
-                            .addComponent(txtUrlImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpload))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPassword)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPasswordComfirm)
+                    .addComponent(txtPasswordComfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRole)
+                    .addComponent(cbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPhone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,14 +225,17 @@ public class StaffDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPriceActionPerformed
-    
-    
-    /**
-     * @param args the command line arguments
-     */
+    }//GEN-LAST:event_txtPhoneActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+       if(action == "add") {
+           employeeController.btnSave(action, this);
+       } else if (action == "edit") {
+           employeeController.btnSave(action, this, user);
+       }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     public JButton getBtnCancel() {
         return btnCancel;
@@ -188,40 +245,46 @@ public class StaffDialog extends javax.swing.JDialog {
         return btnSave;
     }
 
-    public JButton getBtnUpload() {
-        return btnUpload;
-    }
-
-    public JComboBox<String> getCbCategory() {
-        return cbCategory;
+    public JComboBox getCbRole() {
+        return cbRole;
     }
 
     public JTextField getTxtName() {
         return txtName;
     }
 
-    public JTextField getTxtPrice() {
-        return txtPrice;
+    public JPasswordField getTxtPassword() {
+        return txtPassword;
     }
 
-    public JTextField getTxtUrlImage() {
-        return txtUrlImage;
+    public JTextField getTxtPhone() {
+        return txtPhone;
     }
+
+    public JTextField getTxtUserName() {
+        return txtUserName;
+    }
+
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUpload;
-    private javax.swing.JComboBox<String> cbCategory;
+    private javax.swing.JComboBox cbRole;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
-    private javax.swing.JLabel lblCategory;
-    private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPrice;
-    private javax.swing.JLabel lblShowImage;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPasswordComfirm;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtUrlImage;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPasswordComfirm;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,13 +4,19 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import tokyo.huyhieu.cukcuk.controller.ProductController;
 import tokyo.huyhieu.cukcuk.model.Category;
+import tokyo.huyhieu.cukcuk.model.Product;
 import tokyo.huyhieu.cukcuk.repository.CategoryRepository;
+import tokyo.huyhieu.cukcuk.repository.ProductRepository;
+import tokyo.huyhieu.cukcuk.view.panel.ProductPanel;
 
 /**
  *
@@ -18,17 +24,46 @@ import tokyo.huyhieu.cukcuk.repository.CategoryRepository;
  */
 public class ProductDialog extends javax.swing.JDialog {
 
+    private ProductPanel productPanel = new ProductPanel();
+    private ProductController productController = new ProductController(productPanel);
     private CategoryRepository categoryRepository = new CategoryRepository();
     private List<Category> categories = categoryRepository.findAll();
+    private String action;
+    private Product prd;
 
     /**
      * Creates new form ProductDialog
      */
-    public ProductDialog() {
+    public ProductDialog(String action, Product prd) {
+        this.action = action;
+        this.prd = prd;
         initComponents();
         setLocationRelativeTo(null);
+        if (action == "add") {
+            lblTitle.setText("Thêm sản phẩm");
+            btnSave.setText("Lưu");
+        } else if (action == "edit") {
+            lblTitle.setText("Sửa sản phẩm");
+            btnSave.setText("Sửa");
+        }
         loadCategory();
     }
+
+    public ProductDialog(String action) {
+        this.action = action;
+        initComponents();
+        setLocationRelativeTo(null);
+        if (action == "add") {
+            lblTitle.setText("Thêm sản phẩm");
+            btnSave.setText("Lưu");
+        } else if (action == "edit") {
+            lblTitle.setText("Sửa sản phẩm");
+            btnSave.setText("Sửa");
+        }
+        loadCategory();
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,15 +95,18 @@ public class ProductDialog extends javax.swing.JDialog {
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
         lblCategory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblCategory.setForeground(new java.awt.Color(0, 114, 188));
         lblCategory.setText("Danh mục");
 
         lblName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(0, 114, 188));
         lblName.setText("Tên món");
 
         lblPrice.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(0, 114, 188));
         lblPrice.setText("Giá bán");
 
-        lblShowImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblShowImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
 
         txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,19 +114,30 @@ public class ProductDialog extends javax.swing.JDialog {
             }
         });
 
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_24px_1.png"))); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 114, 188));
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_24px_2.png"))); // NOI18N
         btnSave.setText("Lưu");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Close_24px.png"))); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 114, 188));
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_cancel_24px_1.png"))); // NOI18N
         btnCancel.setText("Huỷ bỏ");
 
         lblImage.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblImage.setForeground(new java.awt.Color(0, 114, 188));
         lblImage.setText("Ảnh");
 
+        btnUpload.setForeground(new java.awt.Color(0, 114, 188));
         btnUpload.setText("Tải lên");
 
         lblTitle.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 114, 188));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/product_60px.png"))); // NOI18N
         lblTitle.setText("Thêm món");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
@@ -181,15 +230,20 @@ public class ProductDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        if (action == "add") {
+            productController.btnSave(action, this);
+        } else if (action == "edit") {
+            productController.btnSave(action, this, prd);
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public JButton getBtnCancel() {
         return btnCancel;
-    }
-
-    public JButton getBtnSave() {
-        return btnSave;
     }
 
     public JButton getBtnUpload() {
@@ -217,6 +271,7 @@ public class ProductDialog extends javax.swing.JDialog {
             cbCategory.addItem(category.getName());
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

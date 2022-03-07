@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -190,7 +190,7 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="iD Voucher"/>
           </Properties>
@@ -201,7 +201,7 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; Voucher"/>
           </Properties>
@@ -212,7 +212,7 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Th&#x1edd;i gian hi&#x1ec7;u l&#x1ef1;c"/>
           </Properties>
@@ -223,7 +223,7 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng"/>
           </Properties>
@@ -234,7 +234,7 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
           </Properties>
@@ -245,10 +245,10 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_add_24px_1.png"/>
+              <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_add_24px_2.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
           </Properties>
@@ -259,10 +259,10 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_pencil_24px.png"/>
+              <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_edit_24px_1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
           </Properties>
@@ -273,20 +273,23 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_Remove_24px.png"/>
+              <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/icons8_Delete_24px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Xo&#xe1;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bc" green="72" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="d2" green="70" red="28" type="rgb"/>
+                  <Color PropertyName="color" blue="bc" green="72" red="0" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -294,10 +297,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bc" green="72" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="d2" green="70" red="28" type="rgb"/>
+                  <Color PropertyName="color" blue="bc" green="72" red="0" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -305,10 +311,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField3">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bc" green="72" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="d2" green="70" red="28" type="rgb"/>
+                  <Color PropertyName="color" blue="bc" green="72" red="0" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -316,10 +325,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField4">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bc" green="72" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="d2" green="70" red="28" type="rgb"/>
+                  <Color PropertyName="color" blue="bc" green="72" red="0" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -327,10 +339,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bc" green="72" red="0" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="d2" green="70" red="28" type="rgb"/>
+                  <Color PropertyName="color" blue="bc" green="72" red="0" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -338,6 +353,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="bc" green="72" red="0" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/tokyo/huyhieu/cukcuk/image/modern-isometric-illustration-design-data-analysis_145666-640.jpg"/>
             </Property>
@@ -349,7 +367,7 @@
               <Font name="SansSerif" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NGUY&#xca;N V&#x1eac;T LI&#x1ec6;U"/>
           </Properties>
@@ -357,7 +375,7 @@
         <Component class="javax.swing.JSeparator" name="jSeparator1">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="d2" green="70" red="28" type="rgb"/>
+              <Color blue="bc" green="72" red="0" type="rgb"/>
             </Property>
           </Properties>
         </Component>

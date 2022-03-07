@@ -4,6 +4,9 @@
  */
 package tokyo.huyhieu.cukcuk.view.panel;
 
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author huyhi
@@ -17,6 +20,28 @@ public class ImportPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JLabel getBtnAdd() {
+        return btnAdd;
+    }
+
+    public JLabel getBtnEdit() {
+        return btnEdit;
+    }
+
+    public JLabel getBtnRemove() {
+        return btnRemove;
+    }
+
+    public JTable getTblImport() {
+        return tblImport;
+    }
+
+    public JTable getTblImportDetail() {
+        return tblImportDetail;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +53,7 @@ public class ImportPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        btlImportDetail = new javax.swing.JTable();
+        tblImportDetail = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -42,56 +67,65 @@ public class ImportPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        btlImportDetail.setModel(new javax.swing.table.DefaultTableModel(
+        tblImportDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Tên hàng", "Giá "
+                "Tên hàng", "Đơn giá", "Số lượng", "Thành tiền "
             }
         ));
-        jScrollPane1.setViewportView(btlImportDetail);
+        jScrollPane1.setViewportView(tblImportDetail);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel1.setForeground(new java.awt.Color(0, 114, 188));
         jLabel1.setText("CHI TIẾT ĐƠN NHẬP");
 
         jSeparator1.setBackground(new java.awt.Color(40, 112, 210));
-        jSeparator1.setForeground(new java.awt.Color(40, 112, 210));
+        jSeparator1.setForeground(new java.awt.Color(0, 114, 188));
 
         tblImport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Tên hàng", "Nhà cung cấp", "Tên nhân viên", "Số lượng", "Tổng tiền"
+                "Mã đơn nhập", "Nhà cung cấp", "Tên nhân viên", "Tổng tiền"
             }
         ));
         jScrollPane2.setViewportView(tblImport);
+        if (tblImport.getColumnModel().getColumnCount() > 0) {
+            tblImport.getColumnModel().getColumn(0).setMinWidth(80);
+            tblImport.getColumnModel().getColumn(0).setMaxWidth(80);
+            tblImport.getColumnModel().getColumn(3).setMinWidth(90);
+            tblImport.getColumnModel().getColumn(3).setMaxWidth(90);
+        }
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel2.setForeground(new java.awt.Color(0, 114, 188));
         jLabel2.setText("ĐƠN NHẬP KHO");
 
         btnAdd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(40, 112, 210));
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_1.png"))); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(0, 114, 188));
+        btnAdd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_2.png"))); // NOI18N
         btnAdd.setText("Nhập hàng");
 
         btnEdit.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(40, 112, 210));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_pencil_24px.png"))); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(0, 114, 188));
+        btnEdit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_edit_24px_1.png"))); // NOI18N
         btnEdit.setText("Sửa đơn nhập");
 
         btnRemove.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnRemove.setForeground(new java.awt.Color(40, 112, 210));
-        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Remove_24px.png"))); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(0, 114, 188));
+        btnRemove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Delete_24px.png"))); // NOI18N
         btnRemove.setText("Huỷ đơn nhập");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
@@ -156,7 +190,6 @@ public class ImportPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable btlImportDetail;
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
@@ -167,5 +200,6 @@ public class ImportPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private javax.swing.JTable tblImport;
+    private javax.swing.JTable tblImportDetail;
     // End of variables declaration//GEN-END:variables
 }

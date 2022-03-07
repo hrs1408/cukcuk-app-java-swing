@@ -1,33 +1,41 @@
 package tokyo.huyhieu.cukcuk.model;
 
 public class Voucher {
-    private Long id;
+    private long id;
+    private String voucherName;
     private String dateStart;
     private String dateEnd;
-    private int value;
-    private Boolean status;
+    private boolean status;
+
+    public Voucher(long id, String voucherName, String dateStart, String dateEnd, boolean status) {
+        this.id = id;
+        this.voucherName = voucherName;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.status = status;
+    }
 
     public Voucher() {
     }
 
-    public Voucher(Long id, String dateStart, String dateEnd, int value, Boolean status) {
-        this.id = id;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-        this.value = value;
-        this.status = status;
+    public long getId() {
+        return id;
     }
 
-    public Long getId() {
-        return this.id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getVoucherName() {
+        return voucherName;
+    }
+
+    public void setVoucherName(String voucherName) {
+        this.voucherName = voucherName;
     }
 
     public String getDateStart() {
-        return this.dateStart;
+        return dateStart;
     }
 
     public void setDateStart(String dateStart) {
@@ -35,26 +43,18 @@ public class Voucher {
     }
 
     public String getDateEnd() {
-        return this.dateEnd;
+        return dateEnd;
     }
 
     public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 
-    public int getValue() {
-        return this.value;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public Boolean getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Boolean status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 }

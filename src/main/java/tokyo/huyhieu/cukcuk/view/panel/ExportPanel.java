@@ -56,11 +56,11 @@ public class ExportPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(btlExportDetail);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel1.setForeground(new java.awt.Color(0, 114, 188));
         jLabel1.setText("CHI TIẾT ĐƠN XUẤT");
 
         jSeparator1.setBackground(new java.awt.Color(40, 112, 210));
-        jSeparator1.setForeground(new java.awt.Color(40, 112, 210));
+        jSeparator1.setForeground(new java.awt.Color(0, 114, 188));
 
         btlExport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,22 +76,22 @@ public class ExportPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(btlExport);
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel2.setForeground(new java.awt.Color(0, 114, 188));
         jLabel2.setText("ĐƠN XUẤT KHO");
 
         btnAdd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(40, 112, 210));
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_1.png"))); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(0, 114, 188));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_2.png"))); // NOI18N
         btnAdd.setText("Xuất hàng");
 
         btnEdit.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(40, 112, 210));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_pencil_24px.png"))); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(0, 114, 188));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_edit_24px_1.png"))); // NOI18N
         btnEdit.setText("Sửa đơn xuất");
 
         btnRemove.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnRemove.setForeground(new java.awt.Color(40, 112, 210));
-        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Remove_24px.png"))); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(0, 114, 188));
+        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Delete_24px.png"))); // NOI18N
         btnRemove.setText("Huỷ đơn xuất");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);

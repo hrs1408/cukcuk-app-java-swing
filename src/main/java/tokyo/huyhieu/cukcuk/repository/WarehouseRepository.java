@@ -35,10 +35,10 @@ public class WarehouseRepository {
                 Logger.getLogger(WarehouseRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Warehouse";
+            String sql = "SELECT * FROM WAREHOUSE";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Warehouse Warehouse = new Warehouse(rs.getLong("ID"), rs.getLong("IDMATERIAL"), rs.getLong("QUANTITY"));
+                Warehouse Warehouse = new Warehouse(rs.getLong("IDMATERIAL"), rs.getLong("QUANTITY"));
                 WarehouseList.add(Warehouse);
             }
         } catch (SQLException ex) {
@@ -74,10 +74,10 @@ public class WarehouseRepository {
                 Logger.getLogger(WarehouseRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Warehouse WHERE ID=" + id + "";
+            String sql = "SELECT * FROM WAREHOUSE WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Warehouse = new Warehouse(rs.getLong("ID"), rs.getLong("IDMATERIAL"), rs.getLong("QUANTITY"));
+                Warehouse = new Warehouse(rs.getLong("IDMATERIAL"), rs.getLong("QUANTITY"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(WarehouseRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,11 +109,10 @@ public class WarehouseRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(WarehouseRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Warehouse (IDMATERIAL, QUANTITY) VALUES (?, ?)";
+            String sql = "INSERT INTO WAREHOUSE (IDMATERIAL, QUANTITY) VALUES (?, ?)";
             statement = connection.prepareCall(sql);
-            statement.setLong(1, Warehouse.getId());
-            statement.setLong(2, Warehouse.getIdMaterial());
-            statement.setLong(3, Warehouse.getQuantity());
+            statement.setLong(1, Warehouse.getIdMaterial());
+            statement.setLong(2, Warehouse.getQuantity());
             System.out.println("Insert successfully !!");
             JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
@@ -142,7 +141,7 @@ public class WarehouseRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Warehouse SET IDMATERIAL=?, QUANTITY=? WHERE ID=" + id + "";
+            String sql = "UPDATE WAREHOUSE SET IDMATERIAL=?, QUANTITY=? WHERE IDIDMATERIAL=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setLong(1, Warehouse.getIdMaterial());
             statement.setLong(2, Warehouse.getQuantity());
@@ -176,7 +175,7 @@ public class WarehouseRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Warehouse WHERE ID=" + id + "";
+            String sql = "DELETE FROM WAREHOUSE WHERE IDMATERIAL=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

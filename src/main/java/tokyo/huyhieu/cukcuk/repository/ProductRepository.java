@@ -22,7 +22,7 @@ import tokyo.huyhieu.cukcuk.model.Product;
  * @author huyhi
  */
 public class ProductRepository {
-      public static List<Product> findAll()  {
+    public static List<Product> findAll() {
         List<Product> productList = new ArrayList<>();
         Statement statement = null;
         Connection connection = null;
@@ -33,10 +33,10 @@ public class ProductRepository {
                 Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM PRODUCT";
+            String sql = "SELECT * FROM PRODUCTs";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Product product = new Product(rs.getLong("ID"), rs.getLong("IDCATEGORY"), rs.getString("NAME"),
+                Product product = new Product(rs.getLong("ID"), rs.getLong("IDCATEGORY"), rs.getString("PRODUCTNAME"),
                         rs.getDouble("PRICE"), rs.getString("IMAGE"));
                 productList.add(product);
             }
@@ -61,7 +61,6 @@ public class ProductRepository {
         return productList;
     }
 
-    
     public static Product findById(long id) {
         Product product = new Product();
         Statement statement = null;
@@ -73,10 +72,10 @@ public class ProductRepository {
                 Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM PRODUCT WHERE ID=" + id + "";
+            String sql = "SELECT * FROM PRODUCTs WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                product = new Product(rs.getLong("ID"), rs.getString("NAME"),
+                product = new Product(rs.getLong("ID"), rs.getString("PRODUCTNAME"),
                         rs.getDouble("PRICE"));
             }
         } catch (SQLException ex) {
@@ -100,6 +99,45 @@ public class ProductRepository {
         return product;
     }
 
+    public static List<Product> findByName(String name) {
+        List<Product> productList = new ArrayList<>();
+        Statement statement = null;
+        Connection connection = null;
+        try {
+            try {
+                connection = ConnectionUtils.getMyConnection();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM PRODUCTS WHERE PRODUCTNAME LIKE "+"'%"+name+"%'"+"";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                Product product = new Product(rs.getLong("ID"), rs.getString("PRODUCTNAME"),
+                        rs.getDouble("PRICE"));
+                productList.add(product);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return productList;
+    }
+
     public static void insert(Product product) {
         PreparedStatement statement = null;
         Connection connection = null;
@@ -109,7 +147,7 @@ public class ProductRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO PRODUCT (IDCATEGORY ,NAME, PRICE, IMAGE) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO PRODUCTs (IDCATEGORY ,PRODUCTNAME, PRICE, IMAGE) VALUES (?, ?, ?, ?)";
             statement = connection.prepareCall(sql);
             statement.setLong(1, product.getIdCategory());
             statement.setString(2, product.getName());
@@ -143,7 +181,7 @@ public class ProductRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE PRODUCT SET IDCATEGORY=? ,NAME=?, PRICE=?, IMAGE=? WHERE ID=" + id + "";
+            String sql = "UPDATE PRODUCTs SET IDCATEGORY=? ,PRODUCTNAME=?, PRICE=?, IMAGE=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setLong(1, product.getIdCategory());
             statement.setString(2, product.getName());
@@ -179,7 +217,7 @@ public class ProductRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM PRODUCT WHERE ID=" + id + "";
+            String sql = "DELETE FROM PRODUCTs WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

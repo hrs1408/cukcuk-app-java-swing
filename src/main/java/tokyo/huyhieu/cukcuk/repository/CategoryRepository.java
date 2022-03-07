@@ -33,10 +33,10 @@ public class CategoryRepository {
                 Logger.getLogger(CategoryRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM CATEGORY";
+            String sql = "SELECT * FROM CATEGORYS";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Category category = new Category(rs.getLong("ID"), rs.getString("NAME"));
+                Category category = new Category(rs.getLong("ID"), rs.getString("CATEGORYNAME"));
                 CategoryList.add(category);
             }
         } catch (SQLException ex) {
@@ -72,10 +72,10 @@ public class CategoryRepository {
                 Logger.getLogger(CategoryRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Category WHERE ID=" + id + "";
+            String sql = "SELECT * FROM CATEGORYS WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Category = new Category(rs.getLong("ID"), rs.getString("NAME"));
+                Category = new Category(rs.getLong("ID"), rs.getString("CATEGORYNAME"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CategoryRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,7 +107,7 @@ public class CategoryRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(CategoryRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Category (NAME) VALUES (?)";
+            String sql = "INSERT INTO CATEGORYS (CATEGORYNAME) VALUES (?)";
             statement = connection.prepareCall(sql);
             statement.setString(1, Category.getName());
             System.out.println("Insert successfully !!");
@@ -138,7 +138,7 @@ public class CategoryRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Category SET NAME=? WHERE ID=" + id + "";
+            String sql = "UPDATE CATEGORYS SET CATEGORYNAME=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setString(1, Category.getName());
             System.out.println("Edit successfully !!");
@@ -171,7 +171,7 @@ public class CategoryRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Category WHERE ID=" + id + "";
+            String sql = "DELETE FROM CATEGORYS WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

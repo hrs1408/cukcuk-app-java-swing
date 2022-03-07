@@ -4,7 +4,6 @@
  */
 package tokyo.huyhieu.cukcuk.controller;
 
-import java.awt.Dialog;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -25,18 +24,15 @@ import tokyo.huyhieu.cukcuk.view.panel.ProductPanel;
  * @author huyhi
  */
 public class ProductController {
-
     private ProductPanel view;
-    private ProductDialog dialog;
     private ProductRepository productRepository = new ProductRepository();
     private CategoryRepository categoryRepository = new CategoryRepository();
     private List<Product> products = new ArrayList<>();
     private List<Category> categories = new ArrayList<>();
     DefaultTableModel table = new DefaultTableModel();
 
-    public ProductController(ProductPanel view, ProductDialog dialog) {
+    public ProductController(ProductPanel view) {
         this.view = view;
-        this.dialog = dialog;
         this.view.setVisible(true);
         listener();
     }
@@ -46,12 +42,13 @@ public class ProductController {
         add();
         edit();
         remove();
-        
+        search();
+        reload();
     }
 
     public void show() {
         products = productRepository.findAll();
-        table = (DefaultTableModel) this.view.getTblProduct().getModel();
+        DefaultTableModel table = (DefaultTableModel) this.view.getTblProduct().getModel();
         table.setRowCount(0);
         products.forEach(p -> {
             Category category = categoryRepository.findById(p.getIdCategory());
@@ -64,42 +61,38 @@ public class ProductController {
         });
     }
 
-    public void add() {
+    public void btnSave(String addOrEdit, ProductDialog dialog, Product prd) {
+        int index = dialog.getCbCategory().getSelectedIndex();
         categories = categoryRepository.findAll();
-        this.view.getBtnAdd().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                dialog.setVisible(true);
-                btnSave("add");
-            }
-        });
-    }
+        Category category = categories.get(index);
+        long idCategory = category.getId();
+        String name = dialog.getTxtName().getText();
+        Double price = Double.parseDouble(dialog.getTxtPrice().getText());
+        String image = dialog.getTxtUrlImage().getText();
+        Product product = new Product(idCategory, name, price, image);
+        if (addOrEdit == ("edit")) {
+            productRepository.edit(product, prd.getId());
+            return;
+        }
+    };
 
-    public void btnSave(String addOrEdit) {
-        this.dialog.getBtnSave().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int index = dialog.getCbCategory().getSelectedIndex();
-                Category category = categories.get(index);
-                long idCategory = category.getId();
-                String name = dialog.getTxtName().getText();
-                Double price = Double.parseDouble(dialog.getTxtPrice().getText());
-                String image = dialog.getTxtUrlImage().getText();
-                Product product = new Product(idCategory, name, price, image);
-                if (addOrEdit == "add") {
-                    productRepository.insert(product);
-                } else {
-                    int indexE = view.getTblProduct().getSelectedRow();
-                    Product prd = products.get(indexE);
-                    productRepository.edit(product, prd.getId());
-                }
-                show();
-            }
-        });
-    }
+    public void btnSave(String addOrEdit, ProductDialog dialog) {
+        int index = dialog.getCbCategory().getSelectedIndex();
+        categories = categoryRepository.findAll();
+        Category category = categories.get(index);
+        long idCategory = category.getId();
+        String name = dialog.getTxtName().getText();
+        Double price = Double.parseDouble(dialog.getTxtPrice().getText());
+        String image = dialog.getTxtUrlImage().getText();
+        Product product = new Product(idCategory, name, price, image);
+        if (addOrEdit == "add") {
+            productRepository.insert(product);
+            return;
+        }
+    };
 
-    public void btnCancel() {
-        this.dialog.getBtnCancel().addMouseListener(new MouseAdapter() {
+    public void btnCancel(ProductDialog dialog) {
+        dialog.getBtnCancel().addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 dialog.setVisible(false);
@@ -107,12 +100,21 @@ public class ProductController {
         });
     }
 
-    public void selectedRow() {
-        this.view.getTblProduct().addMouseListener(new MouseAdapter() {
+    public void add() {
+        this.view.getBtnAdd().addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                int index = view.getTblProduct().getSelectedRow();
-                Product prd = products.get(index);
+                ProductDialog dialogA = new ProductDialog("add");
+                dialogA.setVisible(true);
+                dialogA.getTxtName().setText("");
+                dialogA.getTxtPrice().setText("");
+                dialogA.getTxtUrlImage().setText("");
+                btnCancel(dialogA);
+                dialogA.addWindowListener(new WindowAdapter() {
+                    public void windowClosed(WindowEvent e) {
+                        show();
+                    }
+                });
             }
         });
     }
@@ -122,12 +124,24 @@ public class ProductController {
             @Override
             public void mousePressed(MouseEvent e) {
                 int index = view.getTblProduct().getSelectedRow();
-                Product prd = products.get(index);
-                dialog.setVisible(true);
-                dialog.getTxtName().setText(prd.getName());
-                dialog.getTxtPrice().setText(prd.getPrice().toString());
-                dialog.getTxtUrlImage().setText(prd.getImage());
-                btnSave("edit");
+                if (index == -1) {
+                    JOptionPane.showMessageDialog(null, "Chưa chọn sản phẩm");
+                    return;
+                } else {
+                    Product prd = products.get(index);
+                    ProductDialog dialogE = new ProductDialog("edit", prd);
+                    dialogE.setVisible(true);
+                    dialogE.getCbCategory().setSelectedItem(prd.getIdCategory());
+                    dialogE.getTxtName().setText(prd.getName());
+                    dialogE.getTxtPrice().setText(prd.getPrice().toString());
+                    dialogE.getTxtUrlImage().setText(prd.getImage());
+                    btnCancel(dialogE);
+                    dialogE.addWindowListener(new WindowAdapter() {
+                        public void windowClosed(WindowEvent e) {
+                            show();
+                        }
+                    });
+                }
             }
         });
     }
@@ -138,13 +152,47 @@ public class ProductController {
             public void mousePressed(MouseEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(null, "Bạn có muốn xoá?", "Xác nhận",
                         JOptionPane.YES_NO_OPTION);
-                if (opcion == 0) { 
+                if (opcion == 0) {
                     int index = view.getTblProduct().getSelectedRow();
                     Product prd = products.get(index);
                     productRepository.remove(prd.getId());
                     show();
                 } else {
-                    System.out.print("no");
+                    show();
+                }
+            }
+        });
+    }
+
+    public void reload() {
+        this.view.getBtnReload().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                show();
+            }
+        });
+    }
+
+    public void search() {
+        this.view.getBtnSearch().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                String name = view.getTxtSearch().getText();
+                if (name == "") {
+                    show();
+                } else {
+                    products = productRepository.findByName(name);
+                    DefaultTableModel table = (DefaultTableModel) view.getTblProduct().getModel();
+                    table.setRowCount(0);
+                    products.forEach(p -> {
+                        Category category = categoryRepository.findById(p.getIdCategory());
+                        table.addRow(new Object[] {
+                                category.getName(),
+                                p.getName(),
+                                p.getPrice(),
+                                p.getImage()
+                        });
+                    });
                 }
             }
         });

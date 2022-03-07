@@ -21,6 +21,7 @@ import tokyo.huyhieu.cukcuk.utils.ConnectionUtils;
  * @author huyhi
  */
 public class SupplierRepository {
+    
     public static List<Supplier> findAll()  {
         List<Supplier> SupplierList = new ArrayList<>();
         Statement statement = null;
@@ -32,10 +33,10 @@ public class SupplierRepository {
                 Logger.getLogger(SupplierRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Supplier";
+            String sql = "SELECT * FROM Suppliers";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Supplier Supplier = new Supplier(rs.getLong("ID"), rs.getString("NAME"),
+                Supplier Supplier = new Supplier(rs.getLong("ID"), rs.getString("SUPPLIERNAME"),
                         rs.getString("PHONE"), rs.getString("ADDRESS"));
                 SupplierList.add(Supplier);
             }
@@ -72,10 +73,10 @@ public class SupplierRepository {
                 Logger.getLogger(SupplierRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Supplier WHERE ID=" + id + "";
+            String sql = "SELECT * FROM Suppliers WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Supplier = new Supplier(rs.getLong("ID"), rs.getString("NAME"),
+                Supplier = new Supplier(rs.getLong("ID"), rs.getString("SUPPLIERNAME"),
                         rs.getString("PHONE"), rs.getString("ADDRESS"));
             }
         } catch (SQLException ex) {
@@ -108,7 +109,7 @@ public class SupplierRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(SupplierRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Supplier (NAME, PHONE, ADDRESS) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO Suppliers (SUPPLIERNAME, PHONE, ADDRESS) VALUES (?, ?, ?)";
             statement = connection.prepareCall(sql);
             statement.setString(1, Supplier.getName());
             statement.setString(2, Supplier.getPhone());
@@ -141,7 +142,7 @@ public class SupplierRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Supplier SET NAME=?, PHONE=?, ADDRESS=? WHERE ID=" + id + "";
+            String sql = "UPDATE Suppliers SET SUPPLIERNAME=?, PHONE=?, ADDRESS=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setString(1, Supplier.getName());
             statement.setString(2, Supplier.getPhone());
@@ -176,7 +177,7 @@ public class SupplierRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Supplier WHERE ID=" + id + "";
+            String sql = "DELETE FROM Suppliers WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

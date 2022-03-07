@@ -65,57 +65,63 @@ public class VoucherPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblVoucher);
 
         lblIdVoucher.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblIdVoucher.setForeground(new java.awt.Color(40, 112, 210));
+        lblIdVoucher.setForeground(new java.awt.Color(0, 114, 188));
         lblIdVoucher.setText("iD Voucher");
 
         lblVoucher.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblVoucher.setForeground(new java.awt.Color(40, 112, 210));
+        lblVoucher.setForeground(new java.awt.Color(0, 114, 188));
         lblVoucher.setText("Mã Voucher");
 
         lblDate.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblDate.setForeground(new java.awt.Color(40, 112, 210));
+        lblDate.setForeground(new java.awt.Color(0, 114, 188));
         lblDate.setText("Thời gian hiệu lực");
 
         lblQuantity.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblQuantity.setForeground(new java.awt.Color(40, 112, 210));
+        lblQuantity.setForeground(new java.awt.Color(0, 114, 188));
         lblQuantity.setText("Số lượng");
 
         lblStatus.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lblStatus.setForeground(new java.awt.Color(40, 112, 210));
+        lblStatus.setForeground(new java.awt.Color(0, 114, 188));
         lblStatus.setText("Trạng thái");
 
         btnAdd.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(40, 112, 210));
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_1.png"))); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(0, 114, 188));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_add_24px_2.png"))); // NOI18N
         btnAdd.setText("Thêm");
 
         btnEdit.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(40, 112, 210));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_pencil_24px.png"))); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(0, 114, 188));
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_edit_24px_1.png"))); // NOI18N
         btnEdit.setText("Sửa");
 
         btnRemove.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnRemove.setForeground(new java.awt.Color(40, 112, 210));
-        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Remove_24px.png"))); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(0, 114, 188));
+        btnRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Delete_24px.png"))); // NOI18N
         btnRemove.setText("Xoá");
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        jTextField1.setForeground(new java.awt.Color(0, 114, 188));
+        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        jTextField2.setForeground(new java.awt.Color(0, 114, 188));
+        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        jTextField3.setForeground(new java.awt.Color(0, 114, 188));
+        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        jTextField4.setForeground(new java.awt.Color(0, 114, 188));
+        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(40, 112, 210)));
+        jTextField5.setForeground(new java.awt.Color(0, 114, 188));
+        jTextField5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 114, 188)));
 
+        jLabel6.setForeground(new java.awt.Color(0, 114, 188));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/modern-isometric-illustration-design-data-analysis_145666-640.jpg"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel7.setForeground(new java.awt.Color(0, 114, 188));
         jLabel7.setText("NGUYÊN VẬT LIỆU");
 
-        jSeparator1.setForeground(new java.awt.Color(40, 112, 210));
+        jSeparator1.setForeground(new java.awt.Color(0, 114, 188));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);

@@ -54,18 +54,18 @@ public class AdminFrame extends javax.swing.JFrame {
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
         panelNavigation.setkBorderRadius(20);
-        panelNavigation.setkEndColor(new java.awt.Color(27, 255, 255));
-        panelNavigation.setkStartColor(new java.awt.Color(46, 49, 146));
+        panelNavigation.setkEndColor(new java.awt.Color(0, 114, 188));
+        panelNavigation.setkStartColor(new java.awt.Color(0, 103, 174));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/unnamed.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\huyhi\\Documents\\NetBeansProjects\\cukcuk\\src\\main\\java\\tokyo\\huyhieu\\cukcuk\\image\\unnamed.png")); // NOI18N
         jLabel2.setText("CUKCUK");
 
         btnDashboard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnDashboard.setForeground(new java.awt.Color(255, 255, 255));
-        btnDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_dashboard_layout_24px.png"))); // NOI18N
+        btnDashboard.setIcon(new javax.swing.ImageIcon("C:\\Users\\huyhi\\Documents\\NetBeansProjects\\cukcuk\\src\\main\\java\\tokyo\\huyhieu\\cukcuk\\image\\icons8_dashboard_layout_24px.png")); // NOI18N
         btnDashboard.setText("Thống kê");
 
         btnMenu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -156,8 +156,8 @@ public class AdminFrame extends javax.swing.JFrame {
         );
 
         panelHeader.setkBorderRadius(20);
-        panelHeader.setkEndColor(new java.awt.Color(40, 112, 210));
-        panelHeader.setkStartColor(new java.awt.Color(40, 112, 210));
+        panelHeader.setkEndColor(new java.awt.Color(0, 114, 188));
+        panelHeader.setkStartColor(new java.awt.Color(0, 114, 188));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

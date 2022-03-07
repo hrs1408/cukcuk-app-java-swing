@@ -1,6 +1,7 @@
 package tokyo.huyhieu.cukcuk.model;
 
 public class User {
+
     private Long id;
     private String userName;
     private String password;
@@ -8,10 +9,9 @@ public class User {
     private String phone;
     private Boolean role;
 
-
     public User() {
     }
-    
+
     public User(Long id, String userName, String password, String fullName, String phone, Boolean role) {
         this.id = id;
         this.userName = userName;
@@ -19,6 +19,14 @@ public class User {
         this.fullName = fullName;
         this.phone = phone;
         this.role = role;
+    }
+
+    public User(String userName, String password, String fullName, boolean role, String phone) {
+        this.fullName = fullName;
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
+        this.phone = phone;
     }
 
     public Long getId() {

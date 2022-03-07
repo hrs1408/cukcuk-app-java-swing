@@ -34,11 +34,10 @@ public class ExportRepository {
                 Logger.getLogger(ExportRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Export";
+            String sql = "SELECT * FROM Exports";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Export Export = new Export(rs.getLong("ID"), rs.getLong("IDMATERIAL"), rs.getLong("IDUSER"), 
-                rs.getLong("QUANTITY"));
+                Export Export = new Export(rs.getLong("ID"), rs.getLong("IDUSER"));
                 ExportList.add(Export);
             }
         } catch (SQLException ex) {
@@ -73,11 +72,10 @@ public class ExportRepository {
                 Logger.getLogger(ExportRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Export WHERE ID=" + id + "";
+            String sql = "SELECT * FROM Exports WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Export = new Export(rs.getLong("ID"), rs.getLong("IDMATERIAL"), rs.getLong("IDUSER"), 
-                rs.getLong("QUANTITY"));
+                Export = new Export(rs.getLong("ID"), rs.getLong("IDUSER"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ExportRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,11 +107,9 @@ public class ExportRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ExportRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Export (IDMATERIAL, IDUSER, QUANTITY) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO Exports (IDUSER) VALUES (?)";
             statement = connection.prepareCall(sql);
-            statement.setLong(1, Export.getIdMaterial());
-            statement.setLong(2, Export.getIdUser());
-            statement.setLong(3, Export.getQuantity());
+            statement.setLong(1, Export.getIdUser());
             System.out.println("Insert successfully !!");
             JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
@@ -142,11 +138,9 @@ public class ExportRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Export SET IDMATERIAL=?, IDUSER=?, QUANTITY=? WHERE ID=" + id + "";
+            String sql = "UPDATE Exports SET IDUSER=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
-            statement.setLong(1, Export.getIdMaterial());
-            statement.setLong(2, Export.getIdUser());
-            statement.setLong(3, Export.getQuantity());
+            statement.setLong(1, Export.getIdUser());
             System.out.println("Edit successfully !!");
             JOptionPane.showMessageDialog(null, "Edit successfully !!");
             statement.execute();
@@ -177,7 +171,7 @@ public class ExportRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Export WHERE ID=" + id + "";
+            String sql = "DELETE FROM Exports WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

@@ -23,6 +23,7 @@ import tokyo.huyhieu.cukcuk.utils.ConnectionUtils;
  * @author huyhi
  */
 public class VoucherRepository {
+
     public static List<Voucher> findAll() {
         List<Voucher> VoucherList = new ArrayList<>();
         Statement statement = null;
@@ -34,11 +35,11 @@ public class VoucherRepository {
                 Logger.getLogger(VoucherRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Voucher";
+            String sql = "SELECT * FROM Vouchers";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Voucher Voucher = new Voucher(rs.getLong("ID"), rs.getString("DAYSTART"),
-                        rs.getString("DAYEND"), rs.getInt("VALUE"), rs.getBoolean("STATUS"));
+                Voucher Voucher = new Voucher(rs.getLong("ID"), rs.getString("VOUCHERNAME"), rs.getString("DATESTART"),
+                        rs.getString("DATEEND"), rs.getBoolean("STATUS"));
                 VoucherList.add(Voucher);
             }
         } catch (SQLException ex) {
@@ -73,11 +74,11 @@ public class VoucherRepository {
                 Logger.getLogger(VoucherRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM Voucher WHERE ID=" + id + "";
+            String sql = "SELECT * FROM Vouchers WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Voucher = new Voucher(rs.getLong("ID"), rs.getString("DAYSTART"),
-                        rs.getString("DAYEND"), rs.getInt("VALUE"), rs.getBoolean("STATUS"));
+                Voucher = new Voucher(rs.getLong("ID"), rs.getString("VOUCHERNAME"), rs.getString("DATESTART"),
+                        rs.getString("DATEEND"), rs.getBoolean("STATUS"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(VoucherRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -109,12 +110,12 @@ public class VoucherRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(VoucherRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Voucher (DAYSTART, DAYEND, VALUE, STATUS) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO Vouchers (VOUCHERNAME, DATESTART, DATEEND, STATUS) VALUES (?, ?, ?, ?)";
             statement = connection.prepareCall(sql);
-            statement.setString(1, Voucher.getDateStart());
-            statement.setString(2, Voucher.getDateEnd());
-            statement.setInt(3, Voucher.getValue());
-            statement.setBoolean(4, Voucher.getStatus());
+            statement.setString(1, Voucher.getVoucherName());
+            statement.setString(2, Voucher.getDateStart());
+            statement.setString(3, Voucher.getDateEnd());
+            statement.setBoolean(4, Voucher.isStatus());
             System.out.println("Insert successfully !!");
             JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
@@ -143,10 +144,11 @@ public class VoucherRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Voucher SET DAYSTART=?, DAYEND=? WHERE ID=" + id + "";
+            String sql = "UPDATE Vouchers SET VOUCHERNAME=? DAYSTART=?, DAYEND=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
-            statement.setString(1, Voucher.getDateStart());
-            statement.setString(2, Voucher.getDateEnd());
+            statement.setString(1, Voucher.getVoucherName());
+            statement.setString(2, Voucher.getDateStart());
+            statement.setString(3, Voucher.getDateEnd());
             System.out.println("Edit successfully !!");
             JOptionPane.showMessageDialog(null, "Edit successfully !!");
             statement.execute();
@@ -177,7 +179,7 @@ public class VoucherRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "DELETE FROM Voucher WHERE ID=" + id + "";
+            String sql = "DELETE FROM Vouchers WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             System.out.println("Delete successfully !!");
             statement.execute();

@@ -9,8 +9,12 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
+
+import tokyo.huyhieu.cukcuk.model.Warehouse;
 import tokyo.huyhieu.cukcuk.view.AdminFrame;
 import tokyo.huyhieu.cukcuk.view.dialog.ProductDialog;
+import tokyo.huyhieu.cukcuk.view.dialog.StaffDialog;
+import tokyo.huyhieu.cukcuk.view.dialog.SupplierDialog;
 import tokyo.huyhieu.cukcuk.view.panel.CategoryPanel;
 import tokyo.huyhieu.cukcuk.view.panel.DashBoardPanel;
 import tokyo.huyhieu.cukcuk.view.panel.ExportPanel;
@@ -26,10 +30,8 @@ import tokyo.huyhieu.cukcuk.view.panel.WareHousePanel;
  * @author huyhi
  */
 public class AdminController {
-
     private AdminFrame view;
     ProductPanel productPanel = new ProductPanel();
-    ProductDialog productDialog = new ProductDialog();
     DashBoardPanel dashBoardPanel = new DashBoardPanel();
     CategoryPanel categoryPanel = new CategoryPanel();
     WareHousePanel warehousePanel = new WareHousePanel();
@@ -38,7 +40,12 @@ public class AdminController {
     StaffPanel staffPanel = new StaffPanel();
     ImportPanel importPanel = new ImportPanel();
     ExportPanel exportPanel = new ExportPanel();
-    ProductController prdController = new ProductController(productPanel, productDialog);
+    ProductController prdController = new ProductController(productPanel);
+    CategoryController cateController = new CategoryController(categoryPanel);
+    SupplierController supplierController = new SupplierController(supplierPanel);
+    EmployeeController employeeController = new EmployeeController(staffPanel);
+    WarehouseController warehouseController = new WarehouseController(warehousePanel);
+    ImportController importController = new ImportController(importPanel);
     
 
     public AdminController(AdminFrame view) {
@@ -92,6 +99,7 @@ public class AdminController {
             @Override
             public void mousePressed(MouseEvent e) {
                 switchPanel(categoryPanel);
+                cateController.show();
             }
         });
     }
@@ -101,6 +109,7 @@ public class AdminController {
             @Override
             public void mousePressed(MouseEvent e) {
                 switchPanel(warehousePanel);
+
             }
         });
     }
@@ -119,6 +128,7 @@ public class AdminController {
             @Override
             public void mousePressed(MouseEvent e) {
                 switchPanel(supplierPanel);
+                supplierController.show();
             }
         });
     }
@@ -137,6 +147,7 @@ public class AdminController {
             @Override
             public void mousePressed(MouseEvent e) {
                 switchPanel(importPanel);
+                importController.show();
             }
         });
     }

@@ -181,12 +181,12 @@ public class DashBoardPanel extends javax.swing.JPanel {
         kGradientPanel4.setkStartColor(new java.awt.Color(209, 209, 209));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_coins_24px.png"))); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 114, 188));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_get_cash_24px.png"))); // NOI18N
         jLabel1.setText("TIỀN THU");
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel4.setForeground(new java.awt.Color(0, 114, 188));
         jLabel4.setText("805.000");
 
         javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
@@ -214,12 +214,12 @@ public class DashBoardPanel extends javax.swing.JPanel {
         kGradientPanel6.setkStartColor(new java.awt.Color(209, 209, 209));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 112, 210));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_combo_chart_24px.png"))); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 114, 188));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_combo_chart_24px_1.png"))); // NOI18N
         jLabel2.setText("DOANH THU ƯỚC TÍNH");
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel5.setForeground(new java.awt.Color(0, 114, 188));
         jLabel5.setText("1.035.000");
 
         javax.swing.GroupLayout kGradientPanel6Layout = new javax.swing.GroupLayout(kGradientPanel6);
@@ -244,11 +244,11 @@ public class DashBoardPanel extends javax.swing.JPanel {
         );
 
         kGradientPanel8.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(209, 209, 209)));
-        kGradientPanel8.setkEndColor(new java.awt.Color(209, 209, 209));
-        kGradientPanel8.setkStartColor(new java.awt.Color(209, 209, 209));
+        kGradientPanel8.setkEndColor(new java.awt.Color(204, 204, 204));
+        kGradientPanel8.setkStartColor(new java.awt.Color(204, 204, 204));
 
         jLabel17.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(40, 112, 210));
+        jLabel17.setForeground(new java.awt.Color(0, 114, 188));
         jLabel17.setText("Doanh thu theo ngày");
 
         panelRender.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(209, 209, 209)));
@@ -271,9 +271,9 @@ public class DashBoardPanel extends javax.swing.JPanel {
         kGradientPanel8Layout.setVerticalGroup(
             kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel8Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelRender, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );

@@ -1,70 +1,61 @@
 package tokyo.huyhieu.cukcuk.model;
 
 public class Import {
-    private Long id;
-    private Long idMaterial;
-    private Long idSupplier;
-    private Long idUser;
-    private Long quantity;
-    private Double totalPrice;  
+   private long id;
+    private long idSupplier;
+    private long idUser;
+    private Double totalMoney;
+
+    public Import(long id, long idSupplier, long idUser, Double totalMoney) {
+        this.id = id;
+        this.idSupplier = idSupplier;
+        this.idUser = idUser;
+        this.totalMoney = totalMoney;
+    }
+
+    public Import(long idSupplier, long idUser, Double totalMoney) {
+        this.idSupplier = idSupplier;
+        this.idUser = idUser;
+        this.totalMoney = totalMoney;
+    }
+
+    public Import(long idSupplier, long idUser) {
+        this.idSupplier = idSupplier;
+        this.idUser = idUser;
+    }
 
     public Import() {
     }
-    
-    public Import(Long id, Long idMaterial, Long idSupplier, Long idUser, Long quantity, Double totalPrice) {
-        this.id = id;
-        this.idMaterial = idMaterial;
-        this.idSupplier = idSupplier;
-        this.idUser = idUser;
-        this.quantity = quantity;
-        this.totalPrice = totalPrice;
+
+    public long getId() {
+        return id;
     }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Long getIdMaterial() {
-        return this.idMaterial;
+    public long getIdSupplier() {
+        return idSupplier;
     }
 
-    public void setIdMaterial(Long idMaterial) {
-        this.idMaterial = idMaterial;
-    }
-
-    public Long getIdSupplier() {
-        return this.idSupplier;
-    }
-
-    public void setIdSupplier(Long idSupplier) {
+    public void setIdSupplier(long idSupplier) {
         this.idSupplier = idSupplier;
     }
 
-    public Long getIdUser() {
-        return this.idUser;
+    public long getIdUser() {
+        return idUser;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(long idUser) {
         this.idUser = idUser;
     }
 
-    public Long getQuantity() {
-        return this.quantity;
+    public Double getTotalMoney() {
+        return totalMoney;
     }
 
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
-    }
-
-    public Double getTotalPrice() {
-        return this.totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalMoney(Double totalMoney) {
+        this.totalMoney = totalMoney;
     }
 }

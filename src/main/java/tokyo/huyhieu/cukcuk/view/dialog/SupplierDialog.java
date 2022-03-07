@@ -4,22 +4,53 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import com.k33ptoo.components.KGradientPanel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
+import tokyo.huyhieu.cukcuk.controller.SupplierController;
+import tokyo.huyhieu.cukcuk.model.Supplier;
+import tokyo.huyhieu.cukcuk.view.panel.SupplierPanel;
 
 /**
  *
  * @author huyhi
  */
 public class SupplierDialog extends javax.swing.JDialog {
+    SupplierController supplierController = new SupplierController(new SupplierPanel());
+    private String action;
+    private Supplier supplier;
 
     /**
+     * /**
      * Creates new form ProductDialog
      */
-    public SupplierDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public SupplierDialog(String action, Supplier supplier) {
+        this.action = action;
+        this.supplier = supplier;
         initComponents();
+        setLocationRelativeTo(null);
+        if (action == "add") {
+            lblTitle.setText("Thêm nhà cung cấp");
+            btnSave.setText("Lưu");
+        } else if (action == "edit") {
+            lblTitle.setText("Sửa nhà cung cấp");
+            btnSave.setText("Sửa");
+        }
+    }
+    
+    public SupplierDialog(String action) {
+        this.action = action;
+        initComponents();
+        setLocationRelativeTo(null);
+        if (action == "add") {
+            lblTitle.setText("Thêm nhà cung cấp");
+            btnSave.setText("Lưu");
+        } else if (action == "edit") {
+            lblTitle.setText("Sửa nhà cung cấp");
+            btnSave.setText("Sửa");
+        }
     }
 
     /**
@@ -32,58 +63,57 @@ public class SupplierDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
-        lblCategory = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        lblPrice = new javax.swing.JLabel();
-        lblShowImage = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        cbCategory = new javax.swing.JComboBox<>();
+        lblPhone = new javax.swing.JLabel();
+        lblAddress = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        txtUrlImage = new javax.swing.JTextField();
-        lblImage = new javax.swing.JLabel();
-        btnUpload = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        lblCategory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblCategory.setText("Danh mục");
-
         lblName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblName.setText("Tên món");
+        lblName.setForeground(new java.awt.Color(0, 114, 188));
+        lblName.setText("Tên nhà cung cấp");
 
-        lblPrice.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblPrice.setText("Giá bán");
+        lblPhone.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblPhone.setForeground(new java.awt.Color(0, 114, 188));
+        lblPhone.setText("Số điện thoại");
 
-        lblShowImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblAddress.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblAddress.setForeground(new java.awt.Color(0, 114, 188));
+        lblAddress.setText("Địa chỉ");
 
-        txtPrice.addActionListener(new java.awt.event.ActionListener() {
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPriceActionPerformed(evt);
+                txtAddressActionPerformed(evt);
             }
         });
 
-        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_24px_1.png"))); // NOI18N
+        btnSave.setForeground(new java.awt.Color(0, 114, 188));
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_save_26px.png"))); // NOI18N
         btnSave.setText("Lưu");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_Close_24px.png"))); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(0, 114, 188));
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_cancel_26px.png"))); // NOI18N
         btnCancel.setText("Huỷ bỏ");
 
-        lblImage.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblImage.setText("Ảnh");
-
-        btnUpload.setText("Tải lên");
-
         lblTitle.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 114, 188));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Thêm món");
+        lblTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/supplier_60px.png"))); // NOI18N
+        lblTitle.setText("Nhà cung cấp");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -94,32 +124,20 @@ public class SupplierDialog extends javax.swing.JDialog {
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCategory)
-                                    .addComponent(lblName)
-                                    .addComponent(lblPrice))
-                                .addGap(63, 63, 63)
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtName)
-                                    .addComponent(txtPrice)
-                                    .addComponent(cbCategory, 0, 390, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblImage)
-                                        .addGap(105, 105, 105)
-                                        .addComponent(txtUrlImage, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnUpload, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)))
-                        .addGap(0, 26, Short.MAX_VALUE)))
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblName)
+                            .addComponent(lblPhone)
+                            .addComponent(lblAddress))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                            .addComponent(txtAddress)
+                            .addComponent(txtName))
+                        .addGap(0, 80, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -128,33 +146,22 @@ public class SupplierDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCategory)
-                    .addComponent(cbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrice)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblImage)
-                            .addComponent(txtUrlImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpload))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPhone)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAddress)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,15 +178,21 @@ public class SupplierDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPriceActionPerformed
-    
-    
+    }//GEN-LAST:event_txtAddressActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        if (action == "add") {
+            supplierController.btnSave(action, this);
+        } else if (action == "edit") {
+            supplierController.btnSave(action, this, supplier);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
-
     public JButton getBtnCancel() {
         return btnCancel;
     }
@@ -188,40 +201,32 @@ public class SupplierDialog extends javax.swing.JDialog {
         return btnSave;
     }
 
-    public JButton getBtnUpload() {
-        return btnUpload;
-    }
-
-    public JComboBox<String> getCbCategory() {
-        return cbCategory;
+    public JTextField getTxtAddress() {
+        return txtAddress;
     }
 
     public JTextField getTxtName() {
         return txtName;
     }
 
-    public JTextField getTxtPrice() {
-        return txtPrice;
+    /**
+     * @param args the command line arguments
+     */
+    public JTextField getTxtPhone() {
+        return txtPhone;
     }
 
-    public JTextField getTxtUrlImage() {
-        return txtUrlImage;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUpload;
-    private javax.swing.JComboBox<String> cbCategory;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
-    private javax.swing.JLabel lblCategory;
-    private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPrice;
-    private javax.swing.JLabel lblShowImage;
+    private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtUrlImage;
+    private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }

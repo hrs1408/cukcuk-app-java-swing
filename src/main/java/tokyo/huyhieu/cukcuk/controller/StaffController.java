@@ -3,7 +3,6 @@ package tokyo.huyhieu.cukcuk.controller;
 import tokyo.huyhieu.cukcuk.view.StaffFrame;
 
 public class StaffController {
-
     private StaffFrame view;
 
     public StaffController(StaffFrame view) {
@@ -15,5 +14,6 @@ public class StaffController {
     public void listener() {
 
     }
+
 
 }
