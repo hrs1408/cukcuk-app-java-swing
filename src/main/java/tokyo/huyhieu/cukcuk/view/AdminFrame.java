@@ -4,8 +4,10 @@
  */
 package tokyo.huyhieu.cukcuk.view;
 
+import com.k33ptoo.components.KButton;
 import com.k33ptoo.components.KGradientPanel;
 import javax.swing.JLabel;
+import tokyo.huyhieu.cukcuk.model.User;
 
 /**
  *
@@ -43,8 +45,8 @@ public class AdminFrame extends javax.swing.JFrame {
         btnImport = new javax.swing.JLabel();
         btnExport = new javax.swing.JLabel();
         panelHeader = new com.k33ptoo.components.KGradientPanel();
-        jLabel1 = new javax.swing.JLabel();
-        kButton1 = new com.k33ptoo.components.KButton();
+        lblFullName = new javax.swing.JLabel();
+        btnLogout = new com.k33ptoo.components.KButton();
         panelRender = new com.k33ptoo.components.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -159,24 +161,24 @@ public class AdminFrame extends javax.swing.JFrame {
         panelHeader.setkEndColor(new java.awt.Color(0, 114, 188));
         panelHeader.setkStartColor(new java.awt.Color(0, 114, 188));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_name_24px.png"))); // NOI18N
-        jLabel1.setText("Nguyễn Phan Huy Hiếu");
+        lblFullName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblFullName.setForeground(new java.awt.Color(255, 255, 255));
+        lblFullName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_name_24px.png"))); // NOI18N
+        lblFullName.setText("Nguyễn Phan Huy Hiếu");
 
-        kButton1.setBorder(null);
-        kButton1.setText("Đăng xuất");
-        kButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton1.setInheritsPopupMenu(true);
-        kButton1.setkEndColor(new java.awt.Color(255, 255, 255));
-        kButton1.setkForeGround(new java.awt.Color(0, 0, 0));
-        kButton1.setkHoverEndColor(new java.awt.Color(204, 204, 204));
-        kButton1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        kButton1.setkHoverStartColor(new java.awt.Color(204, 204, 204));
-        kButton1.setkStartColor(new java.awt.Color(255, 255, 255));
-        kButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setBorder(null);
+        btnLogout.setText("Đăng xuất");
+        btnLogout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLogout.setInheritsPopupMenu(true);
+        btnLogout.setkEndColor(new java.awt.Color(255, 255, 255));
+        btnLogout.setkForeGround(new java.awt.Color(0, 0, 0));
+        btnLogout.setkHoverEndColor(new java.awt.Color(204, 204, 204));
+        btnLogout.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnLogout.setkHoverStartColor(new java.awt.Color(204, 204, 204));
+        btnLogout.setkStartColor(new java.awt.Color(255, 255, 255));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton1ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
@@ -186,9 +188,9 @@ public class AdminFrame extends javax.swing.JFrame {
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addGap(464, 464, 464)
-                .addComponent(jLabel1)
+                .addComponent(lblFullName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(kButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelHeaderLayout.setVerticalGroup(
@@ -196,8 +198,8 @@ public class AdminFrame extends javax.swing.JFrame {
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblFullName)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
         );
 
@@ -245,10 +247,19 @@ public class AdminFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kButton1ActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
+    public KButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public JLabel getLblFullName() {
+        return lblFullName;
+    }
+
+    
     public JLabel getBtnCategory() {
         return btnCategory;
     }
@@ -306,15 +317,15 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel btnDashboard;
     private javax.swing.JLabel btnExport;
     private javax.swing.JLabel btnImport;
+    private com.k33ptoo.components.KButton btnLogout;
     private javax.swing.JLabel btnMenu;
     private javax.swing.JLabel btnStaff;
     private javax.swing.JLabel btnSupplier;
     private javax.swing.JLabel btnVoucher;
     private javax.swing.JLabel btnWareHouse;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblFullName;
     private com.k33ptoo.components.KGradientPanel panelHeader;
     private com.k33ptoo.components.KGradientPanel panelNavigation;
     private com.k33ptoo.components.KGradientPanel panelRender;

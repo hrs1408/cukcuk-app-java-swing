@@ -74,7 +74,7 @@ public class WarehouseRepository {
                 Logger.getLogger(WarehouseRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM WAREHOUSE WHERE ID=" + id + "";
+            String sql = "SELECT * FROM WAREHOUSE WHERE IDMATERIAL=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Warehouse = new Warehouse(rs.getLong("IDMATERIAL"), rs.getLong("QUANTITY"));
@@ -141,7 +141,7 @@ public class WarehouseRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE WAREHOUSE SET IDMATERIAL=?, QUANTITY=? WHERE IDIDMATERIAL=" + id + "";
+            String sql = "UPDATE WAREHOUSE SET IDMATERIAL=?, QUANTITY=? WHERE IDMATERIAL=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setLong(1, Warehouse.getIdMaterial());
             statement.setLong(2, Warehouse.getQuantity());

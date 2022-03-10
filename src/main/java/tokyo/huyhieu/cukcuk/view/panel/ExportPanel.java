@@ -4,6 +4,9 @@
  */
 package tokyo.huyhieu.cukcuk.view.panel;
 
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author huyhi
@@ -17,6 +20,27 @@ public class ExportPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JLabel getBtnAdd() {
+        return btnAdd;
+    }
+
+    public JLabel getBtnEdit() {
+        return btnEdit;
+    }
+
+    public JLabel getBtnRemove() {
+        return btnRemove;
+    }
+
+    public JTable getTblExport() {
+        return tblExport;
+    }
+
+    public JTable getTblExportDetail() {
+        return tblExportDetail;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,11 +52,11 @@ public class ExportPanel extends javax.swing.JPanel {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        btlExportDetail = new javax.swing.JTable();
+        tblExportDetail = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        btlExport = new javax.swing.JTable();
+        tblExport = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JLabel();
         btnEdit = new javax.swing.JLabel();
@@ -42,18 +66,18 @@ public class ExportPanel extends javax.swing.JPanel {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        btlExportDetail.setModel(new javax.swing.table.DefaultTableModel(
+        tblExportDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Tên hàng", "Giá ", "Thành tiền"
+                "Tên hàng", "Số lượng"
             }
         ));
-        jScrollPane1.setViewportView(btlExportDetail);
+        jScrollPane1.setViewportView(tblExportDetail);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 114, 188));
@@ -62,7 +86,7 @@ public class ExportPanel extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(40, 112, 210));
         jSeparator1.setForeground(new java.awt.Color(0, 114, 188));
 
-        btlExport.setModel(new javax.swing.table.DefaultTableModel(
+        tblExport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -70,10 +94,10 @@ public class ExportPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Tên hàng", "Tên nhân viên", "Số lượng"
+                "Mã xuất hàng", "Tên nhân viên", "Ngày"
             }
         ));
-        jScrollPane2.setViewportView(btlExport);
+        jScrollPane2.setViewportView(tblExport);
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 114, 188));
@@ -159,8 +183,6 @@ public class ExportPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable btlExport;
-    private javax.swing.JTable btlExportDetail;
     private javax.swing.JLabel btnAdd;
     private javax.swing.JLabel btnEdit;
     private javax.swing.JLabel btnRemove;
@@ -170,5 +192,7 @@ public class ExportPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JTable tblExport;
+    private javax.swing.JTable tblExportDetail;
     // End of variables declaration//GEN-END:variables
 }

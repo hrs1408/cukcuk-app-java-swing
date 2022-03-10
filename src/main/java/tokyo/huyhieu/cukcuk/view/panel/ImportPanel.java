@@ -89,13 +89,13 @@ public class ImportPanel extends javax.swing.JPanel {
 
         tblImport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Mã đơn nhập", "Nhà cung cấp", "Tên nhân viên", "Tổng tiền"
+                "Mã đơn nhập", "Nhà cung cấp", "Tên nhân viên", "Tổng tiền", "Ngày"
             }
         ));
         jScrollPane2.setViewportView(tblImport);

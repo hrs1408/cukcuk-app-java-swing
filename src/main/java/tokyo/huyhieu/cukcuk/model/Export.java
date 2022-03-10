@@ -1,12 +1,14 @@
 package tokyo.huyhieu.cukcuk.model;
 
 public class Export {
-     private long id;
+    private long id;
     private long idUser;
+    private String date;
 
-    public Export(long id, long idUser) {
+    public Export(long id, long idUser, String date) {
         this.id = id;
         this.idUser = idUser;
+        this.date = date;
     }
 
     public Export() {
@@ -26,5 +28,13 @@ public class Export {
 
     public void setIdUser(long idUser) {
         this.idUser = idUser;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

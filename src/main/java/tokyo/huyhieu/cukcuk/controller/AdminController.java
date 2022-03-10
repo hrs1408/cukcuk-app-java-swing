@@ -9,9 +9,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
+import tokyo.huyhieu.cukcuk.model.User;
 
 import tokyo.huyhieu.cukcuk.model.Warehouse;
 import tokyo.huyhieu.cukcuk.view.AdminFrame;
+import tokyo.huyhieu.cukcuk.view.Login;
 import tokyo.huyhieu.cukcuk.view.dialog.ProductDialog;
 import tokyo.huyhieu.cukcuk.view.dialog.StaffDialog;
 import tokyo.huyhieu.cukcuk.view.dialog.SupplierDialog;
@@ -31,6 +33,7 @@ import tokyo.huyhieu.cukcuk.view.panel.WareHousePanel;
  */
 public class AdminController {
     private AdminFrame view;
+    private User user;
     ProductPanel productPanel = new ProductPanel();
     DashBoardPanel dashBoardPanel = new DashBoardPanel();
     CategoryPanel categoryPanel = new CategoryPanel();
@@ -46,9 +49,11 @@ public class AdminController {
     EmployeeController employeeController = new EmployeeController(staffPanel);
     WarehouseController warehouseController = new WarehouseController(warehousePanel);
     ImportController importController = new ImportController(importPanel);
+    ExportController exportController = new ExportController(exportPanel);
     
 
-    public AdminController(AdminFrame view) {
+    public AdminController(AdminFrame view, User user) {
+        this.user = user;
         this.view = view;
         this.view.setVisible(true);
         this.view.add(productPanel);
@@ -64,6 +69,8 @@ public class AdminController {
     }
 
     public void listener() {
+        view.getLblFullName().setText(user.getFullName());
+        switchPanel(dashBoardPanel);
         btnDashBoard();
         btnProduct();
         btnCategory();
@@ -73,6 +80,7 @@ public class AdminController {
         btnStaff();
         btnImport();
         btnExport();
+        logOut();
     }
 
     public void btnDashBoard() {
@@ -109,7 +117,7 @@ public class AdminController {
             @Override
             public void mousePressed(MouseEvent e) {
                 switchPanel(warehousePanel);
-
+                warehouseController.show();
             }
         });
     }
@@ -180,5 +188,12 @@ public class AdminController {
         });
         this.view.getPanelRender().add(panel);
         panel.setVisible(true);
+    }
+
+    public void logOut() {
+        this.view.getBtnLogout().addActionListener(l -> {
+            this.view.dispose();
+            LoginController userController = new LoginController(new Login());
+        });
     }
 }

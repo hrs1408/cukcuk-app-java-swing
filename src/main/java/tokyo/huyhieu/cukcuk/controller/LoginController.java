@@ -15,7 +15,6 @@ public class LoginController {
     private Login view;
     private UserRepository userRepo = new UserRepository();
     private List<User> user = new ArrayList<>();
-
     public LoginController(Login view) {
         this.view = view;
         this.view.setVisible(true);
@@ -34,10 +33,10 @@ public class LoginController {
             user.forEach(u -> {
                 if (u.getUserName().equals(username) && u.getPassword().equals(password)) {
                     if (u.getRole()) {
-                        new AdminController(new AdminFrame());
+                        new AdminController(new AdminFrame(), u);
                         this.view.dispose();
                     } else if (!u.getRole()) {
-                        new StaffController(new StaffFrame());
+                        new StaffController(new StaffFrame(), u);
                         this.view.dispose();
                     }
                 } 

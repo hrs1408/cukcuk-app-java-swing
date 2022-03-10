@@ -4,12 +4,20 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import tokyo.huyhieu.cukcuk.controller.ProductController;
 import tokyo.huyhieu.cukcuk.model.Category;
@@ -63,8 +71,6 @@ public class ProductDialog extends javax.swing.JDialog {
         loadCategory();
     }
 
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -107,6 +113,8 @@ public class ProductDialog extends javax.swing.JDialog {
         lblPrice.setText("Giá bán");
 
         lblShowImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 114, 188)));
+        lblShowImage.setMaximumSize(new java.awt.Dimension(120, 120));
+        lblShowImage.setMinimumSize(new java.awt.Dimension(120, 120));
 
         txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +141,11 @@ public class ProductDialog extends javax.swing.JDialog {
 
         btnUpload.setForeground(new java.awt.Color(0, 114, 188));
         btnUpload.setText("Tải lên");
+        btnUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUploadActionPerformed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(0, 114, 188));
@@ -161,14 +174,14 @@ public class ProductDialog extends javax.swing.JDialog {
                                     .addComponent(txtPrice)
                                     .addComponent(cbCategory, 0, 390, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                         .addComponent(lblShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(26, 26, 26)
                                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel1Layout.createSequentialGroup()
+                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                         .addComponent(lblImage)
                                         .addGap(105, 105, 105)
                                         .addComponent(txtUrlImage, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -239,9 +252,39 @@ public class ProductDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(this);
+        File f = chooser.getSelectedFile();
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(f.toString()).getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT));
+        lblShowImage.setIcon(imageIcon);
+        filename = f.getAbsolutePath();
+        txtUrlImage.setText(filename);
+        try {
+            File image = new File(filename);
+            FileInputStream fis = new FileInputStream(image);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                bos.write(buf, 0, readNum);
+            }
+            photo = bos.toByteArray();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnUploadActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    
+    public JLabel getLblShowImage() {
+        return lblShowImage;
+    }
+
     public JButton getBtnCancel() {
         return btnCancel;
     }
@@ -289,4 +332,6 @@ public class ProductDialog extends javax.swing.JDialog {
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtUrlImage;
     // End of variables declaration//GEN-END:variables
+byte[] photo = null;
+    String filename = null;
 }

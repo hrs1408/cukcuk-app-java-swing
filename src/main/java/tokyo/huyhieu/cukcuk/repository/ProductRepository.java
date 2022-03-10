@@ -99,6 +99,44 @@ public class ProductRepository {
         return product;
     }
 
+    public static Product findByNameAdd(String name) {
+        Product product = new Product();
+        Statement statement = null;
+        Connection connection = null;
+        try {
+            try {
+                connection = ConnectionUtils.getMyConnection();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM PRODUCTS WHERE PRODUCTNAME LIKE " + "N'%" + name + "%'" + "";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                product = new Product(rs.getLong("ID"), rs.getString("PRODUCTNAME"),
+                        rs.getDouble("PRICE"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return product;
+    }
+
     public static List<Product> findByName(String name) {
         List<Product> productList = new ArrayList<>();
         Statement statement = null;
@@ -110,11 +148,11 @@ public class ProductRepository {
                 Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
             statement = connection.createStatement();
-            String sql = "SELECT * FROM PRODUCTS WHERE PRODUCTNAME LIKE "+"'%"+name+"%'"+"";
+            String sql = "SELECT * FROM PRODUCTS WHERE PRODUCTNAME LIKE " + "N'%" + name + "%'" + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Product product = new Product(rs.getLong("ID"), rs.getString("PRODUCTNAME"),
-                        rs.getDouble("PRICE"));
+                Product product = new Product(rs.getLong("ID"),rs.getLong("IDCATEGORY"), rs.getString("PRODUCTNAME"),
+                        rs.getDouble("PRICE"), rs.getString("IMAGE"));
                 productList.add(product);
             }
         } catch (SQLException ex) {

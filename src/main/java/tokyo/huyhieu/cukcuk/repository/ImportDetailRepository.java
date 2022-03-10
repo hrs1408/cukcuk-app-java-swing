@@ -277,4 +277,35 @@ public class ImportDetailRepository {
             }
         }
     }
+
+    public static void removeByIdImport(long id) {
+        PreparedStatement statement = null;
+        Connection connection = null;
+        try {
+            connection = ConnectionUtils.getMyConnection();
+            String sql = "DELETE FROM IMPORTDETAIL WHERE IDIMPORT=" + id + "";
+            statement = connection.prepareCall(sql);
+            System.out.println("Delete successfully !!");
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
 }

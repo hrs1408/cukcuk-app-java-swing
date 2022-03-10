@@ -10,6 +10,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import tokyo.huyhieu.cukcuk.model.Category;
@@ -135,6 +138,8 @@ public class ProductController {
                     dialogE.getTxtName().setText(prd.getName());
                     dialogE.getTxtPrice().setText(prd.getPrice().toString());
                     dialogE.getTxtUrlImage().setText(prd.getImage());
+                    ImageIcon imageIcon = new ImageIcon(new ImageIcon(prd.getImage()).getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT));
+                    dialogE.getLblShowImage().setIcon(imageIcon);
                     btnCancel(dialogE);
                     dialogE.addWindowListener(new WindowAdapter() {
                         public void windowClosed(WindowEvent e) {

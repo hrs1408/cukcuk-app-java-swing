@@ -36,7 +36,7 @@ public class ImportRepository {
             String sql = "SELECT * FROM Imports";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Import Import = new Import(rs.getLong("ID"), rs.getLong("IDSUPPLIER"), rs.getLong("IDUSER"), rs.getDouble("TOTALMONEY"));
+                Import Import = new Import(rs.getLong("ID"), rs.getLong("IDSUPPLIER"), rs.getLong("IDUSER"), rs.getDouble("TOTALMONEY"), rs.getString("DATEIMPORT"));
                 ImportList.add(Import);
             }
         } catch (SQLException ex) {
@@ -74,7 +74,7 @@ public class ImportRepository {
             String sql = "SELECT * FROM Imports WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Import = new Import(rs.getLong("ID"), rs.getLong("IDSUPPLIER"), rs.getLong("IDUSER"), rs.getDouble("TOTALMONEY"));
+                Import = new Import(rs.getLong("ID"), rs.getLong("IDSUPPLIER"), rs.getLong("IDUSER"), rs.getDouble("TOTALMONEY"), rs.getString("DATEIMPORT"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,11 +106,12 @@ public class ImportRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Imports (IDSUPPLIER, IDUSER, TOTALPRICE) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO Imports (IDSUPPLIER, IDUSER, TOTALPRICE, DATEIMPORT) VALUES (?, ?, ?, ?)";
             statement = connection.prepareCall(sql);
             statement.setLong(1, Import.getIdSupplier());
             statement.setLong(2, Import.getIdUser());
             statement.setDouble(3, Import.getTotalMoney());
+            statement.setString(4, Import.getDate());
             System.out.println("Insert successfully !!");
             JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
@@ -143,10 +144,11 @@ public class ImportRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Imports (IDSUPPLIER, IDUSER) VALUES (?, ?)";
+            String sql = "INSERT INTO Imports (IDSUPPLIER, IDUSER, DATEIMPORT) VALUES (?, ?, ?)";
             statement = connection.prepareCall(sql);
             statement.setLong(1, Import.getIdSupplier());
             statement.setLong(2, Import.getIdUser());
+            statement.setString(3, Import.getDate());
             System.out.println("Insert successfully !!");
             JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
@@ -205,6 +207,41 @@ public class ImportRepository {
         }
     }
 
+    public static void editE(Import Import, long id) {
+        PreparedStatement statement = null;
+        Connection connection = null;
+        try {
+            connection = ConnectionUtils.getMyConnection();
+            String sql = "UPDATE Imports SET IDSUPPLIER=?, IDUSER=?, DATEIMPORT=? WHERE ID=" + id + "";
+            statement = connection.prepareCall(sql);
+            statement.setLong(1, Import.getIdSupplier());
+            statement.setLong(2, Import.getIdUser());
+            statement.setString(3, Import.getDate());
+            System.out.println("Edit successfully !!");
+            JOptionPane.showMessageDialog(null, "Edit successfully !!");
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+
     public static void remove(long id) {
         PreparedStatement statement = null;
         Connection connection = null;
@@ -235,4 +272,6 @@ public class ImportRepository {
             }
         }
     }
+
+    
 }

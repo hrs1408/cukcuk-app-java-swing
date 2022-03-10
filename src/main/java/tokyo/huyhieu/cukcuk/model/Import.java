@@ -1,27 +1,31 @@
 package tokyo.huyhieu.cukcuk.model;
 
 public class Import {
-   private long id;
+    private long id;
     private long idSupplier;
     private long idUser;
     private Double totalMoney;
+    private String date;
 
-    public Import(long id, long idSupplier, long idUser, Double totalMoney) {
+    public Import(long id, long idSupplier, long idUser, Double totalMoney, String date) {
         this.id = id;
         this.idSupplier = idSupplier;
         this.idUser = idUser;
         this.totalMoney = totalMoney;
+        this.date = date;
     }
 
-    public Import(long idSupplier, long idUser, Double totalMoney) {
+    public Import(long idSupplier, long idUser, Double totalMoney, String date) {
         this.idSupplier = idSupplier;
         this.idUser = idUser;
         this.totalMoney = totalMoney;
+        this.date = date;
     }
 
-    public Import(long idSupplier, long idUser) {
+    public Import(long idSupplier, long idUser, String date) {
         this.idSupplier = idSupplier;
         this.idUser = idUser;
+        this.date = date;
     }
 
     public Import() {
@@ -57,5 +61,13 @@ public class Import {
 
     public void setTotalMoney(Double totalMoney) {
         this.totalMoney = totalMoney;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

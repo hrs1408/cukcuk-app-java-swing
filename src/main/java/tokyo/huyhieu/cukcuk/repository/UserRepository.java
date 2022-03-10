@@ -104,6 +104,44 @@ public class UserRepository {
         return User;
     }
 
+    public static User findByFullName(String name) {
+        User User = new User();
+        Statement statement = null;
+        Connection connection = null;
+        try {
+            try {
+                connection = ConnectionUtils.getMyConnection();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(UserRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM users WHERE FULLNAME="+"N'"+name+"'"+"";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                User = new User(rs.getString("USERNAME"), rs.getString("PASSWORD"), rs.getString("FULLNAME"),
+                        rs.getBoolean("ROLE"), rs.getString("PHONE"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return User;
+    }
+
     public static void insert(User User) {
         PreparedStatement statement = null;
         Connection connection = null;

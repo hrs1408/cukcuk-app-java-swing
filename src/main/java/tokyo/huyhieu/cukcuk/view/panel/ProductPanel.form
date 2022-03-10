@@ -69,15 +69,13 @@
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btnSearch" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtSearch" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" max="-2" attributes="0">
-                              <Component id="btnAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="btnEdit" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="btnRemove" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="btnReload" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" max="-2" attributes="0">
+                          <Component id="btnAdd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="btnEdit" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="btnRemove" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="btnReload" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="txtSearch" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
