@@ -4,6 +4,10 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import com.k33ptoo.components.KButton;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author huyhi
@@ -18,6 +22,28 @@ public class CheckOutDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }
 
+    public KButton getBtnCheckOut() {
+        return btnCheckOut;
+    }
+
+    public JLabel getLblDateTime() {
+        return lblDateTime;
+    }
+
+    public JLabel getLblFullName() {
+        return lblFullName;
+    }
+
+    public JTable getTblCheckOut() {
+        return tblCheckOut;
+    }
+
+    public JLabel getLblTotalPrice() {
+        return lblTotalPrice;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,15 +57,15 @@ public class CheckOutDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCheckOut = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblDateTime = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblFullName = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblTotalPrice = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        kButton1 = new com.k33ptoo.components.KButton();
+        btnCheckOut = new com.k33ptoo.components.KButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(400, 525));
@@ -56,7 +82,7 @@ public class CheckOutDialog extends javax.swing.JDialog {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("HOÁ ĐƠN THANH TOÁN");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCheckOut.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -67,31 +93,31 @@ public class CheckOutDialog extends javax.swing.JDialog {
                 "Tên món", "Số lượng", "Thành tiền"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(1).setMinWidth(70);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(70);
+        jScrollPane1.setViewportView(tblCheckOut);
+        if (tblCheckOut.getColumnModel().getColumnCount() > 0) {
+            tblCheckOut.getColumnModel().getColumn(1).setMinWidth(70);
+            tblCheckOut.getColumnModel().getColumn(1).setMaxWidth(70);
         }
 
         jLabel3.setText("Thời gian:");
 
-        jLabel4.setText("YYYY-MM-DD HH:MI:SS");
+        lblDateTime.setText("YYYY-MM-DD HH:MI:SS");
 
         jLabel5.setText("Nhân viên:");
 
-        jLabel6.setText("Nguyễn Văn Hoàng");
+        lblFullName.setText("Nguyễn Văn Hoàng");
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setText("TỔNG:");
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel8.setText("0VNĐ");
+        lblTotalPrice.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotalPrice.setText("0VNĐ");
 
-        kButton1.setText("Thanh toán");
-        kButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton1.setkEndColor(new java.awt.Color(0, 114, 188));
-        kButton1.setkStartColor(new java.awt.Color(0, 114, 188));
+        btnCheckOut.setText("Thanh toán");
+        btnCheckOut.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCheckOut.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnCheckOut.setkStartColor(new java.awt.Color(0, 114, 188));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -110,21 +136,21 @@ public class CheckOutDialog extends javax.swing.JDialog {
                                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel4))
+                                        .addComponent(lblDateTime))
                                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(lblFullName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                        .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -136,19 +162,19 @@ public class CheckOutDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(lblDateTime))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(lblFullName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -173,18 +199,18 @@ public class CheckOutDialog extends javax.swing.JDialog {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.k33ptoo.components.KButton btnCheckOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblDateTime;
+    private javax.swing.JLabel lblFullName;
+    private javax.swing.JLabel lblTotalPrice;
+    private javax.swing.JTable tblCheckOut;
     // End of variables declaration//GEN-END:variables
 }

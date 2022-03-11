@@ -6,16 +6,18 @@ public class Order {
     private Long idUser;
     private Long idVoucher;
     private String date;
+    private boolean status;
 
     public Order() {
     }
 
-    public Order(Long id, Double totalMoney, Long idUser, Long idVoucher, String date) {
+    public Order(Long id, Double totalMoney, Long idUser, Long idVoucher, String date, boolean status) {
         this.id = id;
         this.totalMoney = totalMoney;
         this.idUser = idUser;
         this.idVoucher = idVoucher;
         this.date = date;
+        this.status = status;
     }
 
     public Long getId() {
@@ -57,4 +59,14 @@ public class Order {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+    
+    
 }

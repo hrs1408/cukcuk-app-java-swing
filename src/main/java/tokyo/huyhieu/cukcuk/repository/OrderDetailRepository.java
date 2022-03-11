@@ -60,6 +60,44 @@ public class OrderDetailRepository {
         return OrderDetailList;
     }
 
+    public static List<OrderDetail> findAllByOrder(Long id) {
+        List<OrderDetail> OrderDetailList = new ArrayList<>();
+        Statement statement = null;
+        Connection connection = null;
+        try {
+            try {
+                connection = ConnectionUtils.getMyConnection();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(OrderDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            statement = connection.createStatement();
+            String sql = "SELECT * FROM OrderDetail WHERE IDORDER=" + id + "";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                OrderDetail OrderDetail = new OrderDetail(rs.getLong("ID"), rs.getLong("IDORDER"), rs.getLong("IDPRODUCT"), rs.getLong("QUANTITY"), rs.getDouble("INTOMONEY"));
+                OrderDetailList.add(OrderDetail);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(OrderDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(OrderDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return OrderDetailList;
+    }
+
     public static OrderDetail findById(long id) {
         OrderDetail OrderDetail = new OrderDetail();
         Statement statement = null;

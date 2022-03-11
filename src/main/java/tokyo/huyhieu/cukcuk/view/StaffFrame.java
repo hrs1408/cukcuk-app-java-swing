@@ -25,6 +25,7 @@ public class StaffFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
 
     public JLabel getLblFullName() {
         return lblFullName;

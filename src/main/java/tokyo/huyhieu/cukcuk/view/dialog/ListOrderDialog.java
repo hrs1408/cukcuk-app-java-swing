@@ -4,6 +4,10 @@
  */
 package tokyo.huyhieu.cukcuk.view.dialog;
 
+import com.k33ptoo.components.KButton;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author huyhi
@@ -18,6 +22,22 @@ public class ListOrderDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }
 
+    public KButton getBtnCheckOut() {
+        return btnCheckOut;
+    }
+
+    public JLabel getLblTotalPrice() {
+        return lblTotalPrice;
+    }
+
+    public JTable getTblListOrder() {
+        return tblListOrder;
+    }
+
+    public JTable getTblOrderDetail() {
+        return tblOrderDetail;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,14 +49,14 @@ public class ListOrderDialog extends javax.swing.JDialog {
 
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblOrderDetail = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblListOrder = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        kButton1 = new com.k33ptoo.components.KButton();
+        btnCheckOut = new com.k33ptoo.components.KButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblTotalPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 530));
@@ -45,7 +65,7 @@ public class ListOrderDialog extends javax.swing.JDialog {
         kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -56,36 +76,44 @@ public class ListOrderDialog extends javax.swing.JDialog {
                 "Tên món", "Số lượng", "Thành tiền"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblOrderDetail);
+        if (tblOrderDetail.getColumnModel().getColumnCount() > 0) {
+            tblOrderDetail.getColumnModel().getColumn(1).setMinWidth(70);
+            tblOrderDetail.getColumnModel().getColumn(1).setMaxWidth(70);
+        }
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DANH SÁCH HOÁ ĐƠN");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblListOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID Order", "Số order", "Thời gian", "Tổng tiền"
+                "ID Order", "Số order", "Thời gian", "Tổng tiền", "Trạng thái"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblListOrder);
+        if (tblListOrder.getColumnModel().getColumnCount() > 0) {
+            tblListOrder.getColumnModel().getColumn(1).setMinWidth(50);
+            tblListOrder.getColumnModel().getColumn(1).setMaxWidth(50);
+        }
 
         jLabel2.setText("Chi tiết hoá đơn");
 
-        kButton1.setText("Thanh toán");
-        kButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        kButton1.setkEndColor(new java.awt.Color(0, 114, 188));
-        kButton1.setkStartColor(new java.awt.Color(0, 114, 188));
+        btnCheckOut.setText("Thanh toán");
+        btnCheckOut.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnCheckOut.setkEndColor(new java.awt.Color(0, 114, 188));
+        btnCheckOut.setkStartColor(new java.awt.Color(0, 114, 188));
 
         jLabel3.setText("Tổng tiền:");
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("0VNĐ");
+        lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotalPrice.setText("0VNĐ");
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -102,8 +130,8 @@ public class ListOrderDialog extends javax.swing.JDialog {
                             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(kButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnCheckOut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
@@ -123,9 +151,9 @@ public class ListOrderDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(lblTotalPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -148,15 +176,15 @@ public class ListOrderDialog extends javax.swing.JDialog {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.k33ptoo.components.KButton btnCheckOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel lblTotalPrice;
+    private javax.swing.JTable tblListOrder;
+    private javax.swing.JTable tblOrderDetail;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,8 +36,8 @@ public class OrderRepository {
             String sql = "SELECT * FROM Orders";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Order Order = new Order(rs.getLong("ID"), rs.getDouble("TOTALPRICE"), rs.getLong("IDVOUCHER"), rs.getLong("IDUSER"), 
-                rs.getString("DAY"));
+                Order Order = new Order(rs.getLong("ID"), rs.getDouble("TOTALMONEY"), rs.getLong("IDVOUCHER"), rs.getLong("IDUSER"), 
+                rs.getString("DATEORDER"), rs.getBoolean("STATUSORDER"));
                 OrderList.add(Order);
             }
         } catch (SQLException ex) {
@@ -75,8 +75,8 @@ public class OrderRepository {
             String sql = "SELECT * FROM Orders WHERE ID=" + id + "";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
-                Order = new Order(rs.getLong("ID"), rs.getDouble("TOTALPRICE"), rs.getLong("IDVOUCHER"), rs.getLong("IDUSER"), 
-                rs.getString("DAY"));
+                Order = new Order(rs.getLong("ID"), rs.getDouble("TOTALMONEY"), rs.getLong("IDVOUCHER"), rs.getLong("IDUSER"), 
+                rs.getString("DATEORDER"), rs.getBoolean("STATUSORDER"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,14 +108,13 @@ public class OrderRepository {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String sql = "INSERT INTO Orders (TOTALMONEY, IDVOUCHER, IDUSER, DAY) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO Orders (TOTALMONEY, IDUSER, DATEORDER, STATUSORDER) VALUES (?, ?, ?, ?)";
             statement = connection.prepareCall(sql);
             statement.setDouble(1, Order.getTotalMoney());
-            statement.setLong(2, Order.getIdVoucher());
-            statement.setLong(3, Order.getIdUser());
-            statement.setString(4, Order.getDate());
+            statement.setLong(2, Order.getIdUser());
+            statement.setString(3, Order.getDate());
+            statement.setBoolean(4, Order.isStatus());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,14 +141,45 @@ public class OrderRepository {
         Connection connection = null;
         try {
             connection = ConnectionUtils.getMyConnection();
-            String sql = "UPDATE Orders SET TOTALMONEY=?, IDVOUCHER=? , IDUSER=?, DAY=? WHERE ID=" + id + "";
+            String sql = "UPDATE Orders SET TOTALMONEY=?, IDVOUCHER=? , IDUSER=?, DATEORDER=? WHERE ID=" + id + "";
             statement = connection.prepareCall(sql);
             statement.setDouble(1, Order.getTotalMoney());
             statement.setLong(2, Order.getIdVoucher());
             statement.setLong(3, Order.getIdUser());
             statement.setString(4, Order.getDate());
             System.out.println("Edit successfully !!");
-            JOptionPane.showMessageDialog(null, "Edit successfully !!");
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
+
+    public static void editStatus(Order Order, long id) {
+        PreparedStatement statement = null;
+        Connection connection = null;
+        try {
+            connection = ConnectionUtils.getMyConnection();
+            String sql = "UPDATE Orders SET STATUSORDER=? WHERE ID=" + id + "";
+            statement = connection.prepareCall(sql);
+            statement.setBoolean(1, Order.isStatus());
+            System.out.println("Edit successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
