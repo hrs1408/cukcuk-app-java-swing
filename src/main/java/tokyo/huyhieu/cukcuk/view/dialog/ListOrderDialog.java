@@ -94,7 +94,7 @@ public class ListOrderDialog extends javax.swing.JDialog {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID Order", "Số order", "Thời gian", "Tổng tiền", "Trạng thái"
+                "ID Order", "Số order", "Trạng thái", "Tổng tiền", "Thời gian"
             }
         ));
         jScrollPane2.setViewportView(tblListOrder);

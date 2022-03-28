@@ -7,7 +7,6 @@ public class OrderDetail {
     private Long quantity;
     private Double intoMoney;
 
-
     public OrderDetail() {
     }
 

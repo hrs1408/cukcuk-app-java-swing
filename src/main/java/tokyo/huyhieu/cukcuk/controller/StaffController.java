@@ -457,6 +457,7 @@ public class StaffController {
                                 orderDetail.getIntoMoney()
                         });
                     }
+                    listOrderDialog.getLblTotalPrice().setText(order.getTotalMoney().toString());
                     listOrderDialog.getBtnCheckOut().addMouseListener(new MouseAdapter() {
                         @Override
                         public void mousePressed(MouseEvent e) {
@@ -479,6 +480,7 @@ public class StaffController {
     public void cancelOrder(){
         this.view.getBtnCancel().addActionListener(l -> {
             tableTempOrder.setRowCount(0);
+            view.getLblTotal().setText("0");
         });
     }
 
