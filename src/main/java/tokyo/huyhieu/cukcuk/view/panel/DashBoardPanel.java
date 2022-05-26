@@ -5,12 +5,16 @@
 package tokyo.huyhieu.cukcuk.view.panel;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
+import tokyo.huyhieu.cukcuk.model.Order;
+import tokyo.huyhieu.cukcuk.repository.OrderRepository;
 
 /**
  *
@@ -18,11 +22,18 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class DashBoardPanel extends javax.swing.JPanel {
 
+    private OrderRepository orderRepo = new OrderRepository();
+    static double intoMoney = 0.0;
+    static double totalMoney = 0.0;
+    static double tempMoney = 0.0;
+
     /**
      * Creates new form DashBoardPanel
      */
     public DashBoardPanel() {
         initComponents();
+        getIntoMoney();
+        getTotalMoney();
         ChartPanel chartPanel = new ChartPanel(createChart());
         chartPanel.setPreferredSize(new java.awt.Dimension(560, 367));
         panelRender.removeAll();
@@ -42,24 +53,24 @@ public class DashBoardPanel extends javax.swing.JPanel {
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblIntoMoney1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         kGradientPanel3 = new com.k33ptoo.components.KGradientPanel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblIntoMoney2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblTempMoney = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         kGradientPanel4 = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblIntoMoney = new javax.swing.JLabel();
         kGradientPanel6 = new com.k33ptoo.components.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTotalMoney = new javax.swing.JLabel();
         kGradientPanel8 = new com.k33ptoo.components.KGradientPanel();
         jLabel17 = new javax.swing.JLabel();
         panelRender = new com.k33ptoo.components.KGradientPanel();
@@ -73,7 +84,7 @@ public class DashBoardPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Bán hàng");
 
-        jLabel6.setText("805.000");
+        lblIntoMoney1.setText("805.000");
 
         jLabel7.setText("Thu nợ");
 
@@ -93,7 +104,7 @@ public class DashBoardPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6))
+                        .addComponent(lblIntoMoney1))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -110,7 +121,7 @@ public class DashBoardPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel6))
+                    .addComponent(lblIntoMoney1))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -128,11 +139,11 @@ public class DashBoardPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Đã thanh toán");
 
-        jLabel12.setText("805.000");
+        lblIntoMoney2.setText("805.000");
 
         jLabel13.setText("Đang phục  vụ");
 
-        jLabel14.setText("230.000");
+        lblTempMoney.setText("230.000");
 
         jLabel15.setText("Đã huỷ");
 
@@ -148,11 +159,11 @@ public class DashBoardPanel extends javax.swing.JPanel {
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel12))
+                        .addComponent(lblIntoMoney2))
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
-                        .addComponent(jLabel14))
+                        .addComponent(lblTempMoney))
                     .addGroup(kGradientPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,11 +176,11 @@ public class DashBoardPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(lblIntoMoney2))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14))
+                    .addComponent(lblTempMoney))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -185,9 +196,10 @@ public class DashBoardPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_get_cash_24px.png"))); // NOI18N
         jLabel1.setText("TIỀN THU");
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 114, 188));
-        jLabel4.setText("805.000");
+        lblIntoMoney.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lblIntoMoney.setForeground(new java.awt.Color(0, 114, 188));
+        lblIntoMoney.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblIntoMoney.setText("805.000");
 
         javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
         kGradientPanel4.setLayout(kGradientPanel4Layout);
@@ -196,8 +208,8 @@ public class DashBoardPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(lblIntoMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         kGradientPanel4Layout.setVerticalGroup(
@@ -206,7 +218,7 @@ public class DashBoardPanel extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel4))
+                    .addComponent(lblIntoMoney))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -218,9 +230,10 @@ public class DashBoardPanel extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tokyo/huyhieu/cukcuk/image/icons8_combo_chart_24px_1.png"))); // NOI18N
         jLabel2.setText("DOANH THU ƯỚC TÍNH");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 114, 188));
-        jLabel5.setText("1.035.000");
+        lblTotalMoney.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lblTotalMoney.setForeground(new java.awt.Color(0, 114, 188));
+        lblTotalMoney.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTotalMoney.setText("1.035.000");
 
         javax.swing.GroupLayout kGradientPanel6Layout = new javax.swing.GroupLayout(kGradientPanel6);
         kGradientPanel6.setLayout(kGradientPanel6Layout);
@@ -230,7 +243,7 @@ public class DashBoardPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(lblTotalMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         kGradientPanel6Layout.setVerticalGroup(
@@ -239,7 +252,7 @@ public class DashBoardPanel extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel5))
+                    .addComponent(lblTotalMoney))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -324,6 +337,31 @@ public class DashBoardPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void getIntoMoney() {
+        List<Order> orders = new ArrayList<>();
+        orders = orderRepo.findAll();
+        orders.forEach(item -> {
+            if (item.isStatus() == true) {
+                intoMoney += item.getTotalMoney();
+            } else {
+                tempMoney += item.getTotalMoney();
+            }
+            lblIntoMoney.setText(Double.toString(intoMoney) + "đ");
+            lblIntoMoney1.setText(Double.toString(intoMoney) + "đ");
+            lblIntoMoney2.setText(Double.toString(intoMoney) + "đ");
+            lblTempMoney.setText(Double.toString(tempMoney) + "đ");
+        });
+    }
+
+    public void getTotalMoney() {
+        List<Order> orders = new ArrayList<>();
+        orders = orderRepo.findAll();
+        orders.forEach(item -> {
+            totalMoney += item.getTotalMoney();
+        });
+        lblTotalMoney.setText(Double.toString(totalMoney) + "đ");
+    }
+
     public static JFreeChart createChart() {
         JFreeChart barChart = ChartFactory.createBarChart(
                 "Doanh thu trong tháng 1",
@@ -334,37 +372,37 @@ public class DashBoardPanel extends javax.swing.JPanel {
 
     private static CategoryDataset createDataset() {
         final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(68000000, "Doanh thu", "01");
-        dataset.addValue(80000000, "Doanh thu", "02");
-        dataset.addValue(88000000, "Doanh thu", "03");
-        dataset.addValue(95000000, "Doanh thu", "04");
-        dataset.addValue(68000000, "Doanh thu", "05");
-        dataset.addValue(80000000, "Doanh thu", "06");
-        dataset.addValue(88000000, "Doanh thu", "07");
-        dataset.addValue(95000000, "Doanh thu", "08");
-        dataset.addValue(68000000, "Doanh thu", "09");
-        dataset.addValue(80000000, "Doanh thu", "10");
-        dataset.addValue(88000000, "Doanh thu", "11");
-        dataset.addValue(95000000, "Doanh thu", "12");
-        dataset.addValue(68000000, "Doanh thu", "13");
-        dataset.addValue(80000000, "Doanh thu", "14");
-        dataset.addValue(88000000, "Doanh thu", "15");
-        dataset.addValue(95000000, "Doanh thu", "16");
-        dataset.addValue(68000000, "Doanh thu", "17");
-        dataset.addValue(80000000, "Doanh thu", "18");
-        dataset.addValue(88000000, "Doanh thu", "19");
-        dataset.addValue(95000000, "Doanh thu", "20");
-        dataset.addValue(68000000, "Doanh thu", "21");
-        dataset.addValue(80000000, "Doanh thu", "22");
-        dataset.addValue(88000000, "Doanh thu", "23");
-        dataset.addValue(95000000, "Doanh thu", "24");
-        dataset.addValue(68000000, "Doanh thu", "25");
-        dataset.addValue(80000000, "Doanh thu", "26");
-        dataset.addValue(88000000, "Doanh thu", "27");
-        dataset.addValue(95000000, "Doanh thu", "28");
-        dataset.addValue(68000000, "Doanh thu", "29");
-        dataset.addValue(80000000, "Doanh thu", "30");
-        dataset.addValue(88000000, "Doanh thu", "31");
+        dataset.addValue(680000, "Doanh thu", "01");
+        dataset.addValue(800000, "Doanh thu", "02");
+        dataset.addValue(880000, "Doanh thu", "03");
+        dataset.addValue(950000, "Doanh thu", "04");
+        dataset.addValue(680000, "Doanh thu", "05");
+        dataset.addValue(800000, "Doanh thu", "06");
+        dataset.addValue(880000, "Doanh thu", "07");
+        dataset.addValue(950000, "Doanh thu", "08");
+        dataset.addValue(680000, "Doanh thu", "09");
+        dataset.addValue(800000, "Doanh thu", "10");
+        dataset.addValue(880000, "Doanh thu", "11");
+        dataset.addValue(950000, "Doanh thu", "12");
+        dataset.addValue(680000, "Doanh thu", "13");
+        dataset.addValue(800000, "Doanh thu", "14");
+        dataset.addValue(880000, "Doanh thu", "15");
+        dataset.addValue(950000, "Doanh thu", "16");
+        dataset.addValue(680000, "Doanh thu", "17");
+        dataset.addValue(800000, "Doanh thu", "18");
+        dataset.addValue(880000, "Doanh thu", "19");
+        dataset.addValue(950000, "Doanh thu", "20");
+        dataset.addValue(680000, "Doanh thu", "21");
+        dataset.addValue(800000, "Doanh thu", "22");
+        dataset.addValue(880000, "Doanh thu", "23");
+        dataset.addValue(950000, "Doanh thu", "24");
+        dataset.addValue(680000, "Doanh thu", "25");
+        dataset.addValue(800000, "Doanh thu", "26");
+        dataset.addValue(880000, "Doanh thu", "27");
+        dataset.addValue(950000, "Doanh thu", "28");
+        dataset.addValue(680000, "Doanh thu", "29");
+        dataset.addValue(800000, "Doanh thu", "30");
+        dataset.addValue(880000, "Doanh thu", "31");
         return dataset;
     }
 
@@ -372,17 +410,12 @@ public class DashBoardPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -392,6 +425,11 @@ public class DashBoardPanel extends javax.swing.JPanel {
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
     private com.k33ptoo.components.KGradientPanel kGradientPanel6;
     private com.k33ptoo.components.KGradientPanel kGradientPanel8;
+    private javax.swing.JLabel lblIntoMoney;
+    private javax.swing.JLabel lblIntoMoney1;
+    private javax.swing.JLabel lblIntoMoney2;
+    private javax.swing.JLabel lblTempMoney;
+    private javax.swing.JLabel lblTotalMoney;
     private com.k33ptoo.components.KGradientPanel panelRender;
     // End of variables declaration//GEN-END:variables
 }

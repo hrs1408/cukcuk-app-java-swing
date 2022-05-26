@@ -153,7 +153,7 @@ public class ExportDetailRepository {
             statement.setLong(2, ExportDetail.getIdMaterial());
             statement.setLong(3, ExportDetail.getQuantity());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
+           
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ExportDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -186,7 +186,7 @@ public class ExportDetailRepository {
             statement.setLong(2, ExportDetail.getIdMaterial());
             statement.setLong(3, ExportDetail.getQuantity());
             System.out.println("Edit successfully !!");
-            JOptionPane.showMessageDialog(null, "Edit successfully !!");
+           
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ExportDetailRepository.class.getName()).log(Level.SEVERE, null, ex);

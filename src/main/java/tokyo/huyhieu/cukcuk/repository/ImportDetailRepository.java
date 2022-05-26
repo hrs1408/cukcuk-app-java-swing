@@ -189,7 +189,7 @@ public class ImportDetailRepository {
             statement.setLong(3, ImportDetail.getQuantity());
             statement.setDouble(4, ImportDetail.getIntoMoney());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
+           
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ExportRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -223,7 +223,7 @@ public class ImportDetailRepository {
             statement.setLong(3, ImportDetail.getQuantity());
             statement.setDouble(4, ImportDetail.getIntoMoney());
             System.out.println("Edit successfully !!");
-            JOptionPane.showMessageDialog(null, "Edit successfully !!");
+            
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ExportRepository.class.getName()).log(Level.SEVERE, null, ex);

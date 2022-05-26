@@ -28,6 +28,7 @@ import tokyo.huyhieu.cukcuk.view.dialog.ExportDialog;
 import tokyo.huyhieu.cukcuk.view.panel.ExportPanel;
 
 public class ExportController {
+
     private ExportPanel view;
     private ExportRepository exportRepository = new ExportRepository();
     private ExportDetailRepository exportDetailRepository = new ExportDetailRepository();
@@ -61,10 +62,10 @@ public class ExportController {
         table = (DefaultTableModel) this.view.getTblExport().getModel();
         table.setRowCount(0);
         exports.forEach(item -> {
-            table.addRow(new Object[] {
-                    "XH" + item.getId(),
-                    userRepository.findById(item.getIdUser()).getFullName(),
-                    item.getDate()
+            table.addRow(new Object[]{
+                "XH" + item.getId(),
+                userRepository.findById(item.getIdUser()).getFullName(),
+                item.getDate()
             });
         });
     }
@@ -79,9 +80,9 @@ public class ExportController {
                 table2.setRowCount(0);
                 List<ExportDetail> exportDetails = exportDetailRepository.findByExport(exportShow.getId());
                 exportDetails.forEach(item -> {
-                    table2.addRow(new Object[] {
-                            materialRepository.findById(item.getIdMaterial()).getName(),
-                            item.getQuantity()
+                    table2.addRow(new Object[]{
+                        materialRepository.findById(item.getIdMaterial()).getName(),
+                        item.getQuantity()
                     });
                 });
             }
@@ -97,10 +98,9 @@ public class ExportController {
                 tableMaterial = (DefaultTableModel) exportDialog.getTblMaterial().getModel();
                 tableMaterial.setRowCount(0);
                 materialRepository.findAll().forEach(item -> {
-                    tableMaterial.addRow(new Object[] {
-                            item.getName(),
-                            item.getPrice(),
-                    });
+                    tableMaterial.addRow(new Object[]{
+                        item.getName(),
+                        item.getPrice(),});
                 });
                 tableTempExport = (DefaultTableModel) exportDialog.getTblTempImportDetal().getModel();
                 tableTempExport.setRowCount(0);
@@ -109,9 +109,9 @@ public class ExportController {
                     public void mousePressed(MouseEvent e) {
                         int index = exportDialog.getTblMaterial().getSelectedRow();
                         Material material = materials.get(index);
-                        tableTempExport.addRow(new Object[] {
-                                material.getName(),
-                                exportDialog.getTxtQuantity().getText()
+                        tableTempExport.addRow(new Object[]{
+                            material.getName(),
+                            exportDialog.getTxtQuantity().getText()
 
                         });
                     }
@@ -162,6 +162,7 @@ public class ExportController {
                                                 .getId());
                                 exportDetailRepository.insert(exportDetail);
                             }
+                            JOptionPane.showMessageDialog(null, "Insert successfully !!");
 
                         }
                     }
@@ -189,17 +190,16 @@ public class ExportController {
                 tableMaterial = (DefaultTableModel) exportDialog.getTblMaterial().getModel();
                 tableMaterial.setRowCount(0);
                 materialRepository.findAll().forEach(item -> {
-                    tableMaterial.addRow(new Object[] {
-                            item.getName(),
-                            item.getPrice(),
-                    });
+                    tableMaterial.addRow(new Object[]{
+                        item.getName(),
+                        item.getPrice(),});
                 });
                 tableTempExport = (DefaultTableModel) exportDialog.getTblTempImportDetal().getModel();
                 tableTempExport.setRowCount(0);
                 exportDetails.forEach(item -> {
-                    tableTempExport.addRow(new Object[] {
-                            materialRepository.findById(item.getIdMaterial()).getName(),
-                            item.getQuantity()
+                    tableTempExport.addRow(new Object[]{
+                        materialRepository.findById(item.getIdMaterial()).getName(),
+                        item.getQuantity()
                     });
                 });
                 exportDialog.getBtnAddTemp().addMouseListener(new MouseAdapter() {
@@ -207,9 +207,9 @@ public class ExportController {
                     public void mousePressed(MouseEvent e) {
                         int index = exportDialog.getTblMaterial().getSelectedRow();
                         Material material = materials.get(index);
-                        tableTempExport.addRow(new Object[] {
-                                material.getName(),
-                                exportDialog.getTxtQuantity().getText()
+                        tableTempExport.addRow(new Object[]{
+                            material.getName(),
+                            exportDialog.getTxtQuantity().getText()
 
                         });
                     }

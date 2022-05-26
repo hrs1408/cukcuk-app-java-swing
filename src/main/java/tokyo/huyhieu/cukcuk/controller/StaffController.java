@@ -358,6 +358,8 @@ public class StaffController {
                         orderDetail.setIntoMoney(Double.parseDouble(tableTempOrder.getValueAt(i, 2).toString()));
                         OrderDetailRepository.insert(orderDetail);
                     }
+                                                JOptionPane.showMessageDialog(null, "Insert successfully !!");
+
                 }
             });
         });
@@ -406,6 +408,8 @@ public class StaffController {
                         orderDetail.setIntoMoney(Double.parseDouble(tableTempOrder.getValueAt(i, 2).toString()));
                         OrderDetailRepository.insert(orderDetail);
                     }
+                                                JOptionPane.showMessageDialog(null, "Insert successfully !!");
+
                 }
             });
         });
@@ -467,6 +471,7 @@ public class StaffController {
                                 order.setStatus(true);
                                 OrderRepository.editStatus(order, order.getId());
                                 JOptionPane.showMessageDialog(null, "Thanh toán thành công");
+                                
                             }
                         }
                     });

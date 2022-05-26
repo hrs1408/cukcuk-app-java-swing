@@ -111,7 +111,6 @@ public class CategoryRepository {
             statement = connection.prepareCall(sql);
             statement.setString(1, Category.getName());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(CategoryRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,7 +141,6 @@ public class CategoryRepository {
             statement = connection.prepareCall(sql);
             statement.setString(1, Category.getName());
             System.out.println("Edit successfully !!");
-            JOptionPane.showMessageDialog(null, "Edit successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(CategoryRepository.class.getName()).log(Level.SEVERE, null, ex);

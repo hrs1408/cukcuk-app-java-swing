@@ -113,7 +113,6 @@ public class ImportRepository {
             statement.setDouble(3, Import.getTotalMoney());
             statement.setString(4, Import.getDate());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ImportRepository.class.getName()).log(Level.SEVERE, null, ex);

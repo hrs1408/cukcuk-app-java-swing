@@ -151,7 +151,7 @@ public class OrderDetailRepository {
             statement.setLong(3, OrderDetail.getQuantity());
             statement.setDouble(4, OrderDetail.getIntoMoney());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
+          
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrderDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
@@ -185,7 +185,6 @@ public class OrderDetailRepository {
             statement.setLong(3, OrderDetail.getQuantity());
             statement.setDouble(4, OrderDetail.getIntoMoney());
             System.out.println("Edit successfully !!");
-            JOptionPane.showMessageDialog(null, "Edit successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(OrderDetailRepository.class.getName()).log(Level.SEVERE, null, ex);
