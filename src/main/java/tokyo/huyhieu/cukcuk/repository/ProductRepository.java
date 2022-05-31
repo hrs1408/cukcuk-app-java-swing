@@ -192,7 +192,6 @@ public class ProductRepository {
             statement.setDouble(3, product.getPrice());
             statement.setString(4, product.getImage());
             System.out.println("Insert successfully !!");
-            JOptionPane.showMessageDialog(null, "Insert successfully !!");
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ProductRepository.class.getName()).log(Level.SEVERE, null, ex);

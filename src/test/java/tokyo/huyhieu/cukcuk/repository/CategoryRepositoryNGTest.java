@@ -42,7 +42,7 @@ public class CategoryRepositoryNGTest {
     public void testFindAll() {
         System.out.println("findAll");
         List result = CategoryRepository.findAll();
-        assertNotNull(result); //sua
+        assertNotNull(result); 
     }
 
     @Test

@@ -20,6 +20,14 @@ public class Order {
         this.status = status;
     }
 
+    public Order( Double totalMoney, Long idUser, Long idVoucher, String date, boolean status) {
+        this.totalMoney = totalMoney;
+        this.idUser = idUser;
+        this.idVoucher = idVoucher;
+        this.date = date;
+        this.status = status;
+    }
+
     public Long getId() {
         return this.id;
     }

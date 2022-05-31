@@ -3,15 +3,19 @@
 <suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="1" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="tokyo.huyhieu.cukcuk.repository.CategoryRepositoryNGTest">
+      <class name="tokyo.huyhieu.cukcuk.repository.UserRepositoryNGTest">
         <methods>
-          <include name="testEdit"/>
-          <include name="setUpClass"/>
           <include name="tearDownMethod"/>
+          <include name="testFindByFullName"/>
+          <include name="testFindById"/>
+          <include name="testInsert"/>
           <include name="setUpMethod"/>
           <include name="tearDownClass"/>
+          <include name="setUpClass"/>
+          <include name="testEdit"/>
+          <include name="testRemove"/>
         </methods>
-      </class> <!-- tokyo.huyhieu.cukcuk.repository.CategoryRepositoryNGTest -->
+      </class> <!-- tokyo.huyhieu.cukcuk.repository.UserRepositoryNGTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

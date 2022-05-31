@@ -99,7 +99,7 @@ public class OrderRepository {
         return Order;
     }
 
-    public static void insert(Order Order) {
+    public static Order insert(Order Order) {
         PreparedStatement statement = null;
         Connection connection = null;
         try {
@@ -134,6 +134,7 @@ public class OrderRepository {
                 }
             }
         }
+        return Order;
     }
 
     public static void edit(Order Order, long id) {
